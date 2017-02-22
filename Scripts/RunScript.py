@@ -5,7 +5,7 @@
 """
 from Scripts.APIScripts.Competition.ApplyCompetition import *
 from Scripts.APIScripts.Competition.GameMemberID import *
-from Scripts.APIScripts.PersonalCenter.LoginReportData import *
+from Scripts.APIScripts.Other.LoginReportData import *
 
 
 class RunScript:

@@ -3,7 +3,7 @@
 已报名用户确认参赛
 """
 
-from Scripts.APIScripts.PersonalCenter.Login import *
+from Scripts.APIScripts.Other.Login import *
 
 
 class Confirm:

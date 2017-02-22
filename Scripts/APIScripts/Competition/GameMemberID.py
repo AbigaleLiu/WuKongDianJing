@@ -2,7 +2,7 @@
 """
 获取登录用户绑定的游戏角色ID
 """
-from Scripts.APIScripts.PersonalCenter.Login import *
+from Scripts.APIScripts.Other.Login import *
 from Scripts.ConfigFile import *
 
 class GetGameMember:

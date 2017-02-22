@@ -3,7 +3,7 @@
 获取对阵表
 """
 
-from Scripts.APIScripts.PersonalCenter.Login import *
+from Scripts.APIScripts.Other.Login import *
 
 
 class AgainsInfo:
