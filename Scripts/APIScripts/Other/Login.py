@@ -40,6 +40,7 @@ class Login:
         log_list = [u'登录', u"post", login_url, str(post_data), time, status_code, info]
         GetReport().get_report()  # 生成或打开日志文件
         GetReport().record_into_report(log_list)  # 逐条写入日志
+        print GetCurrentTime().getHeaderTime()
         return json
 
 

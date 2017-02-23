@@ -12,7 +12,7 @@ class AddRole:
         :param game_region: 游戏大区编号
         :return:
         """
-        post_data = {"gameId": "%s" % game_region["game_id"],
+        post_data = {"gameId": "%s" % game_region["id"],
                      "gamePlayer": "%s" % ConfigFile().game_role_name(),
                      "gameServiceId": "%s" % game_region["region_id"]}
         headers = {"Cache - Control": "no - cache",
