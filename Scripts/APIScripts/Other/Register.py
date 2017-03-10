@@ -40,8 +40,6 @@ class Register:
         return json
 
 
-def main():
-    r = Register()
-    print r.register("18708125576", "aaaaaa", "")
 if __name__ == "__main__":
-    main()
+    r = Register()
+    print(r.register("18708125576", "aaaaaa", ""))

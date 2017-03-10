@@ -1,6 +1,11 @@
 # _*_ coding:utf-8 _*_
 from Scripts.APIScripts.Other.Login import *
+
+
 class ComplainType:
+    """
+    获取反馈类型
+    """
     def complain_type(self):
         post_data = {}
         headers = {"Cache - Control": "no - cache",
@@ -25,8 +30,6 @@ class ComplainType:
         return json
 
 
-def main():
-    r = ComplainType()
-    print r.complain_type()
 if __name__ == "__main__":
-    main()
+    r = ComplainType()
+    print(r.complain_type())

@@ -36,8 +36,6 @@ class SendCode:
         return json
 
 
-def main():
-    r = SendCode()
-    print r.sendCode("18708125576", 1)
 if __name__ == "__main__":
-    main()
+    r = SendCode()
+    print(r.sendCode("18708125576", 1))

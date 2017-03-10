@@ -27,11 +27,11 @@ class RunScript:
                 member_game_id = GetGameMember().get_game_member_id(token)
                 apply_competition = ApplyCompetition().apply(activity_id, member_game_id, mobile, token)
                 if apply_competition[1] == 200:
-                    print time, mobile, "报名成功"
+                    print(time, mobile, "报名成功")
                 else:
-                    print apply_competition[0], mobile, apply_competition[1], apply_competition[2]
+                    print(apply_competition[0], mobile, apply_competition[1], apply_competition[2])
             except urllib2.HTTPError as e:
-                print time, mobile, e.code, urllib.unquote(e.reason)
+                print(time, mobile, e.code, urllib.unquote(e.reason))
 
 
 def main():

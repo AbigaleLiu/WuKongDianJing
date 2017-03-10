@@ -84,21 +84,33 @@ class ConfigFile:
                                   u"会开花的树"))
         return nickname
 
-    def game_role_name(self):
+    def game_role_name(self, game_id):
         """
         随机选择游戏角色名
         :return: str
         """
-        game_role_name = random.choice((u"海纳百川",
-                                        u"迷雾沼泽",
-                                        u"有理想的大师",
-                                        u"夜色",
-                                        u"蓝蓝蓝蓝",
-                                        u"鱼儿水中游",
-                                        u"梧桐木",
-                                        u"清风道长",
-                                        u"策马江湖",
-                                        u"会开花的树"))
+        if game_id == 1:
+            game_role_name = random.choice((u"海纳百川#12121",
+                                            u"迷雾沼泽#14144",
+                                            u"有理想的大师#122334",
+                                            u"夜色#4414",
+                                            u"蓝蓝蓝蓝#4532",
+                                            u"鱼儿水中游#5223",
+                                            u"梧桐木#1224",
+                                            u"清风道长#5345",
+                                            u"策马江湖#5678",
+                                            u"会开花的树#9089"))
+        else:
+            game_role_name = random.choice((u"海纳百川",
+                                            u"迷雾沼泽",
+                                            u"有理想的大师",
+                                            u"夜色",
+                                            u"蓝蓝蓝蓝",
+                                            u"鱼儿水中游",
+                                            u"梧桐木",
+                                            u"清风道长",
+                                            u"策马江湖",
+                                            u"会开花的树"))
         # game_role_name = u"清风道长"
         return game_role_name
 def main():

@@ -1,5 +1,7 @@
 # _*_ coding:utf-8 _*_
 from Scripts.APIScripts.Other.Login import *
+
+
 class PersonalUpdate:
     """
     编辑个人资料
@@ -37,9 +39,7 @@ class PersonalUpdate:
         return json
 
 
-def main():
+if __name__ == "__main__":
     login = Login().login("18708125570", "aaaaaa")
     r = PersonalUpdate()
-    print r.personal_update(login)
-if __name__ == "__main__":
-    main()
+    print(r.personal_update(login))

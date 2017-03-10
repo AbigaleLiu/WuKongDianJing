@@ -1,8 +1,9 @@
 # _*_ coding:utf-8 _*_
 from Scripts.APIScripts.Other.Login import *
+from Scripts.APIScripts.PersonalCenter.GetInviteCode import *
 class FillinInviteCode:
-    def fillin_invite_code(self, login):
-        post_data = {"fromcode": ""}
+    def fillin_invite_code(self, login, fromcode):
+        post_data = {"fromcode": "%s" % fromcode}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
@@ -28,7 +29,8 @@ class FillinInviteCode:
 
 def main():
     login = Login().login("18708125570", "aaaaaa")
+    fromcode = GetInviteCode().get_invite_code(login)["data"]["code"]
     r = FillinInviteCode()
-    print r.fillin_invite_code(login)
+    print(r.fillin_invite_code(login, fromcode))
 if __name__ == "__main__":
     main()

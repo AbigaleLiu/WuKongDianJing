@@ -1,9 +1,9 @@
 # _*_ coding:utf-8 _*_
 
 import xlwt
+import xlrd
 from xlutils.copy import copy
-from GetUsers import *
-from Scripts.APIScripts.Other.Login import *
+from Scripts.GetUsers import *
 from Scripts.GetCurrentTime import *
 
 
@@ -13,6 +13,7 @@ class GetReport:
     """
     report_path = ConfigFile().report_path()
     sheet_name = GetCurrentTime().sheet_time()
+
     def get_report(self):
         """
         生成xls文件
@@ -119,9 +120,7 @@ class GetReport:
                 report_copy.save(r"%s" % ConfigFile().report_path())
 
 
-def main():
+if __name__ == "__main__":
     r = GetReport()
     r.get_report()
-    print r.style()
-if __name__ == "__main__":
-    main()
+    print(r.style())

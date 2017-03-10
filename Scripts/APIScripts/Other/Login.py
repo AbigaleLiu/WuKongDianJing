@@ -3,9 +3,6 @@ import requests
 from Scripts.GetCurrentTime import *
 from Scripts.ConfigFile import *
 from Scripts.GetReport import *
-import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
 
 
 class Login:
@@ -40,13 +37,11 @@ class Login:
         log_list = [u'登录', u"post", login_url, str(post_data), time, status_code, info]
         GetReport().get_report()  # 生成或打开日志文件
         GetReport().record_into_report(log_list)  # 逐条写入日志
-        print GetCurrentTime().getHeaderTime()
+        print(GetCurrentTime().getHeaderTime())
         return json
 
-
-def main():
-    t = Login()
-    print t.login("18708125500", "aaaaaa")
+    def run(self):
+        pass
 if __name__ == "__main__":
-    main()
-
+    t = Login()
+    print(t.login("18708125500", "aaaaaa"))

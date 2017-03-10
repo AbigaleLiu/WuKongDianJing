@@ -55,3 +55,19 @@ class GetCurrentTime:
         """
         sheet_name = time.strftime('%Y-%m-%d', time.localtime(time.time()))
         return sheet_name
+
+    def match_time(self):
+        """
+        创建比赛时间，日 时：分
+        :return: str
+        """
+        # day = time.strftime("%d")
+        match_time = time.strftime(u"%d日%H:%M", time.localtime(time.time()))
+        return match_time
+
+if __name__ == '__main__':
+    _run = GetCurrentTime()
+    print(_run.getCurrentTime())
+    print(_run.sheet_time())
+    print(_run.getHeaderTime())
+    print(_run.match_time())

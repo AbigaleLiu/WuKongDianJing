@@ -1,6 +1,6 @@
 # _*_ coding:utf-8 _*_
 from Scripts.APIScripts.Other.Login import *
-from AddRole import *
+from Scripts.APIScripts.PersonalCenter.AddRole import *
 class RoleList:
     """
     获取所有游戏角色列表
@@ -36,13 +36,10 @@ class RoleList:
         return json
 
 
-def main():
-    game_region = GameRegion().game_region()
-    login = Login().login("18708125570", "aaaaaa")
-    print "add:"
-    print AddRole().add_role(login, game_region)
-    print "rolelist:"
-    r = RoleList()
-    r.role_list(login)
 if __name__ == "__main__":
-    main()
+    login = Login().login("18708125570", "aaaaaa")
+    print("add:")
+    print(AddRole().add_role(login, 1))
+    print("rolelist:")
+    r = RoleList()
+    print(r.role_list(login))

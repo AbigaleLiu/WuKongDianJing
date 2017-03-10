@@ -39,8 +39,6 @@ class ForgetPassword:
         return json
 
 
-def main():
-    r = ForgetPassword()
-    print r.forget_password("18708125571", "123456", "")
 if __name__ == "__main__":
-    main()
+    r = ForgetPassword()
+    print(r.forget_password("18708125571", "123456", ""))

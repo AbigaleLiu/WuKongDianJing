@@ -32,14 +32,12 @@ class QQLogin:
         else:
             info = request.reason
         json = request.json()
-        log_list = [u'QQ登录', u"post", third_login_url , str(post_data), time, status_code, info]
+        log_list = [u'QQ登录', u"post", third_login_url, str(post_data), time, status_code, info]
         GetReport().get_report()  # 生成或打开日志文件
         GetReport().record_into_report(log_list)  # 逐条写入日志
         return json
 
 
-def main():
-    r = QQLogin()
-    print r.qq_login("openid")
 if __name__ == "__main__":
-    main()
+    r = QQLogin()
+    print(r.qq_login("openid"))

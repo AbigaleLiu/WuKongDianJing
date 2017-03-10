@@ -34,9 +34,7 @@ class PersonalInfo:
         return json
 
 
-def main():
+if __name__ == "__main__":
     login = Login().login("18708125570", "aaaaaa")
     r = PersonalInfo()
-    print r.personal_info(login)
-if __name__ == "__main__":
-    main()
+    print(r.personal_info(login))

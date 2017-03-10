@@ -3,7 +3,7 @@
 从users.xls文件中读取已注册用户mobile、password
 """
 import xlrd  # 对excel文件读操作
-from ConfigFile import *
+from Scripts.ConfigFile import *
 
 
 class GetUsers:
@@ -32,7 +32,7 @@ class GetUsers:
         :return: uid
         """
         uid = str(int(self.get_users()[index][0]))
-        print uid
+        print(uid)
 
     def get_mobile(self, index=0):
         """

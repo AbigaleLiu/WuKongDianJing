@@ -13,11 +13,11 @@ class VerificationCode:
         time.sleep(30)
         while (1):
             ver_code = os.popen(cmd).read()
-            print ver_code
+            print(ver_code)
             if ver_code:
                 ver_code = ver_code.split("验证码：")[1].split("，")[0]
                 break
-        print ver_code
+        print(ver_code)
 
 
 def main():

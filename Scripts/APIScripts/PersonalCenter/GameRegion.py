@@ -1,16 +1,19 @@
 # _*_ coding:utf-8 _*_
 from Scripts.APIScripts.Other.Login import *
 from Scripts.GetReport import *
+import requests
+
+
 class GameRegion:
     """
     获取游戏大区
     """
-    def game_region(self):
+    def game_region(self, game_id):
         """
         获取大区
         :return:
         """
-        post_data = {"gameId": "%d" % random.randint(1, 3)}  # 1：炉石；2：英雄联盟；3：守望
+        post_data = {"gameId": "%d" % game_id}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
@@ -33,8 +36,6 @@ class GameRegion:
         return json
 
 
-def main():
-    r = GameRegion()
-    print r.game_region()
 if __name__ == "__main__":
-    main()
+    r = GameRegion()
+    print(r.game_region(1))

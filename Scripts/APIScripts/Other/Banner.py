@@ -1,7 +1,11 @@
 # _*_ coding:utf-8 _*_
 import requests
+import multiprocessing as mul_p
 from Scripts.GetReport import *
 from Scripts.GetCurrentTime import *
+import random
+
+
 class Banner:
     """
     获取banner列表
@@ -33,9 +37,14 @@ class Banner:
         GetReport().record_into_report(log_list)  # 逐条写入日志
         return json
 
-
-def main():
-    r = Banner()
-    print r.banner()
+    # def run(self):
+    #     pool = mul_p.Pool(processes=10)
+    #     for i in range(10):
+    #         pool.map_async(self,() ,)
+    #     pool.close()
+    #     pool.join()
 if __name__ == "__main__":
-    main()
+    # _run = Banner()
+    # _run.run()
+    b = Banner()
+    print(b.banner())

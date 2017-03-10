@@ -38,9 +38,7 @@ class DailyDeed:
         return json
 
 
-def main():
+if __name__ == "__main__":
     login = Login().login("18708125571", "aaaaaa")
     r = DailyDeed()
-    print r.daily_deed(login)
-if __name__ == "__main__":
-    main()
+    print(r.daily_deed(login))

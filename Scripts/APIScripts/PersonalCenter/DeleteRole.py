@@ -3,7 +3,7 @@ import requests
 from Scripts.APIScripts.Other.Login import *
 from Scripts.GetCurrentTime import *
 from Scripts.ConfigFile import *
-from RoleList import *
+from Scripts.APIScripts.PersonalCenter.RoleList import *
 class DeleteRole:
     """
     删除已绑定的游戏角色
@@ -38,11 +38,8 @@ class DeleteRole:
         return json
 
 
-def main():
+if __name__ == '__main__':
     login = Login().login("18708125570", "aaaaaa")
     r = DeleteRole()
-    print r.delete_role(login)
-    print RoleList().role_list(login)
-
-if __name__ == '__main__':
-    main()
+    print(r.delete_role(login))
+    print(RoleList().role_list(login))

@@ -1,20 +1,25 @@
 # _*_ coding:utf-8 _*_
-from GameRegion import *
+from Scripts.APIScripts.PersonalCenter.GameRegion import *
+from Scripts.APIScripts.Other.Login import *
 from Scripts.GetReport import *
+from Scripts.ConfigFile import *
+from Scripts.GetCurrentTime import *
+
+
 class AddRole:
     """
     添加游戏角色
     """
-    def add_role(self, login, game_region):
+    def add_role(self, login, game_id):
         """
         添加游戏角色
-        :param login:
-        :param game_region: 游戏大区编号
+        :param login:登录
+        :param game_id: 游戏编号
         :return:
         """
-        post_data = {"gameId": "%s" % game_region["id"],
-                     "gamePlayer": "%s" % ConfigFile().game_role_name(),
-                     "gameServiceId": "%s" % game_region["region_id"]}
+        post_data = {"gameId": "%d" % game_id,
+                     "gamePlayer": "%s" % ConfigFile().game_role_name(game_id),
+                     "gameServiceId": "%s" % GameRegion().game_region(game_id)["data"][0]["id"]}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
@@ -38,10 +43,7 @@ class AddRole:
         return json
 
 
-def main():
+if __name__ == "__main__":
     login = Login().login("18708125570", "aaaaaa")
     r = AddRole()
-    game_region = GameRegion().game_region()
-    print r.add_role(login, game_region)
-if __name__ == "__main__":
-    main()
+    print(r.add_role(login, 1))

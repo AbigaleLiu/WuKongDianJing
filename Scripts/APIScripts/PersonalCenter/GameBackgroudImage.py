@@ -1,16 +1,18 @@
 # _*_coding:utf-8 _*_
-from AddRole import *
+from Scripts.APIScripts.PersonalCenter.AddRole import *
+import requests
+from Scripts.GetReport import *
 class GameBackgroudImage:
     """
     获取游戏背景图片（切换游戏时）
     """
-    def game_backgroud_image(self, login):
+    def game_backgroud_image(self, login, game_id):
         """
         获取游戏背景图
         :param login:
         :return:
         """
-        post_data = {"gameId": ""}  # 选填，填写后选择的游戏优先显示
+        post_data = {"gameId": "%d" % game_id}  # 选填，填写后选择的游戏优先显示
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
@@ -35,9 +37,7 @@ class GameBackgroudImage:
         return json
 
 
-def main():
+if __name__ == '__main__':
     login = Login().login("18708125570", "aaaaaa")
     r = GameBackgroudImage()
-    print r.game_backgroud_image(login)
-if __name__ == '__main__':
-    main()
+    print(r.game_backgroud_image(login, 1))

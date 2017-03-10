@@ -38,9 +38,7 @@ class Record:
         return json
 
 
-def main():
+if __name__ == "__main__":
     login = Login().login("18708125571", "aaaaaa")
     r = Record()
-    print r.record(login)
-if __name__ == "__main__":
-    main()
+    print(r.record(login))

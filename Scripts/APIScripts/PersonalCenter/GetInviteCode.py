@@ -1,5 +1,7 @@
 # _*_ coding:utf-8 _*_
 from Scripts.APIScripts.Other.Login import *
+
+
 class GetInviteCode:
     """
     获取邀请码
@@ -34,9 +36,7 @@ class GetInviteCode:
         return json
 
 
-def main():
+if __name__ == "__main__":
     login = Login().login("18708125570", "aaaaaa")
     r = GetInviteCode()
-    print r.get_invite_code(login)
-if __name__ == "__main__":
-    main()
+    print(r.get_invite_code(login))

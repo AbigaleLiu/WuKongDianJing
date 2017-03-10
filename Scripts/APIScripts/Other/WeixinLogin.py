@@ -34,8 +34,7 @@ class WeixinLogin:
         GetReport().record_into_report(log_list)  # 逐条写入日志
         return json
 
-def main():
-    r = WeixinLogin()
-    print r.weixin_login("openid")
+
 if __name__ == "__main__":
-    main()
+    r = WeixinLogin()
+    print(r.weixin_login("openid"))
