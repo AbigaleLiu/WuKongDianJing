@@ -1,9 +1,11 @@
 # _*_ coding:utf-8 _*_
+import requests
 from Scripts.APIScripts.PersonalCenter.GameRegion import *
 from Scripts.APIScripts.Other.Login import *
 from Scripts.GetReport import *
 from Scripts.ConfigFile import *
 from Scripts.GetCurrentTime import *
+from Scripts.GetUsers import *
 
 
 class AddRole:
@@ -32,18 +34,23 @@ class AddRole:
         request = requests.post(add_role_url, data=post_data, headers=headers)
         time = GetCurrentTime().getCurrentTime()
         status_code = request.status_code
-        if status_code == 200 or 422:
-            info = request.json()["info"]
-        else:
-            info = request.reason
-        json = request.json()
-        log_list = [u'添加游戏角色', u"post", add_role_url, str(post_data), time, status_code, info]  # 单条日志记录
-        GetReport().get_report()  # 生成或打开日志文件
-        GetReport().record_into_report(log_list)  # 逐条写入日志
-        return json
+        try:
+            if status_code in (200, 422):
+                json = request.json()
+                info = json["info"]
+                return json
+            else:
+                info = request.reason
+        finally:
+            log_list = [u'添加游戏角色', u"post", add_role_url, str(post_data), time, status_code, info]  # 单条日志记录
+            GetReport().get_report()  # 生成或打开日志文件
+            GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
 if __name__ == "__main__":
-    login = Login().login("18708125570", "aaaaaa")
-    r = AddRole()
-    print(r.add_role(login, 1))
+    users = GetUsers().get_users()
+    for user in range(len(users)):
+        login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
+        print(login)
+        r = AddRole()
+        print(r.add_role(login, 1))

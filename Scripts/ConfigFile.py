@@ -1,6 +1,8 @@
 # _*_ coding:utf-8 _*_
 import os
 import random
+import math
+import json
 """
 配置文件
 """
@@ -113,8 +115,29 @@ class ConfigFile:
                                             u"会开花的树"))
         # game_role_name = u"清风道长"
         return game_role_name
-def main():
-    r = ConfigFile()
-    r.nickname()
+
+    def raward(self, people_num, base_num=100):
+        """
+        创建比赛-奖金方案
+        :param people_num: 报名人数
+        :param base_num: 总奖金基数，若为常规赛则传frozen值；若为奖金池则使用默认值
+        :return: 
+        """
+        reward = {}
+        list = []
+        reward_all = 0
+        rounds = int(math.log2(int(people_num))) + 1
+        for i in range(1, rounds):
+            list.append(i)
+        for i in range(1, rounds):
+            per_reward = math.floor(base_num / sum(range(1, rounds)) * list[-i])
+            reward["%d" % i] = "%d" % per_reward
+            reward_all = reward_all + per_reward
+        if reward_all != base_num:
+            reward["1"] = str(int(reward["1"]) + base_num - reward_all)
+        return reward
+
+
 if __name__ == '__main__':
-    main()
+    _run = ConfigFile()
+    print(_run.raward(8))

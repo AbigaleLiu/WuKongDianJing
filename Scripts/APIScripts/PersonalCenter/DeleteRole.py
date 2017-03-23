@@ -8,13 +8,13 @@ class DeleteRole:
     """
     删除已绑定的游戏角色
     """
-    def delete_role(self, login):
+    def delete_role(self, login, role_id):
         """
         删除角色
         :param login:
         :return:
         """
-        post_data = {"roleId": ""}
+        post_data = {"roleId": "%d" % role_id}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
@@ -27,19 +27,21 @@ class DeleteRole:
         request = requests.delete(delete_role_url, data=post_data, headers=headers)
         time = GetCurrentTime().getCurrentTime()
         status_code = request.status_code
-        if status_code == 200 or 422:
-            info = request.json()["info"]
-        else:
-            info = request.reason
-        json = request.json()
-        log_list = [u'删除角色', u"delete", delete_role_url, str(post_data), time, status_code, info]  # 单条日志记录
-        GetReport().get_report()  # 生成或打开日志文件
-        GetReport().record_into_report(log_list)  # 逐条写入日志
-        return json
+        try:
+            if status_code in (200, 422):
+                json = request.json()
+                info = json["info"]
+                return json
+            else:
+                info = request.reason
+        finally:
+            log_list = [u'删除角色', u"delete", delete_role_url, str(post_data), time, status_code, info]  # 单条日志记录
+            GetReport().get_report()  # 生成或打开日志文件
+            GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
 if __name__ == '__main__':
     login = Login().login("18708125570", "aaaaaa")
     r = DeleteRole()
-    print(r.delete_role(login))
+    print(r.delete_role(login, 151))
     print(RoleList().role_list(login))
