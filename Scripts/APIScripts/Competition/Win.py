@@ -34,11 +34,14 @@ class Win:
                 info = request.reason
         finally:
             log_list = [u'提交结果为胜', u"post", win_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
 if __name__ == '__main__':
-    login = Login().login("18708125570", "aaaaaa")
-    _run = Win()
-    print(_run.win(login, 67, 1))
+    users = GetUsers().get_users()
+    for user in range(len(users)):
+        login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
+        print(login)
+        _run = Win()
+        print(_run.win(login, 48, 1))

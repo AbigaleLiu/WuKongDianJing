@@ -4,14 +4,15 @@ from Scripts.GetCurrentTime import *
 from Scripts.GetReport import *
 from Scripts.GetUsers import *
 from Scripts.APIScripts.Other.Login import *
+from Scripts.APIScripts.Competition.BanList import *
 
 
-class BanList:
+class CheckPassword:
     """
-    获取对手选择的英雄/地图列表
+    检测赛事房间密码
     """
-    def ban_list(self, login, id, screenings):
-        post_data = {"screenings": "%d" % screenings}
+    def check_password(self, login, id, password):
+        post_data = {"password": "%d" % password}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
@@ -20,11 +21,11 @@ class BanList:
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
                    "Transfer - Encoding": "chunked"}
-        ban_list_url = "http://%s/activity/%d/banheros" % (ConfigFile().host(), id)
-        request = requests.get(ban_list_url, post_data, headers=headers)
+        check_password_url = "http://%s/activity/%d/checkpassword" % (ConfigFile().host(), id)
+        request = requests.post(check_password_url, post_data, headers=headers)
         time = GetCurrentTime().getCurrentTime()
         status_code = request.status_code
-        print(ban_list_url)
+        print(check_password_url)
         try:
             if status_code in (200, 422):
                 json = request.json()
@@ -33,12 +34,16 @@ class BanList:
             else:
                 info = request.reason
         finally:
-            log_list = [u'获取对手选择的英雄或地图', u"get", ban_list_url, str(post_data), time, status_code, info]  # 单条日志记录
+            log_list = [u'提交房间密码', u"post", check_password_url, str(post_data), time, status_code, info]  # 单条日志记录
             GetReport().get_report()  # 生成或打开日志文件
             GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
 if __name__ == '__main__':
-    login = Login().login("18708125570", "aaaaaa")
-    _run = BanList()
-    print(_run.ban_list(login, 113, 1))
+    id = 159  # 赛事ID
+    password = 123456
+    users = GetUsers().get_users()
+    for user in range(len(users)):
+        login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
+        _run = CheckPassword()
+        print(_run.check_password(login, id, password))

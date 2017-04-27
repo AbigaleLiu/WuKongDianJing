@@ -39,14 +39,14 @@ class Confirm:
                 info = request.reason
         finally:
             log_list = [u'确认参赛', u"put", confirm_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
 if __name__ == '__main__':
     users = GetUsers().get_users()
-    for user in range(len(users)):
+    for user in range(1,80):
         login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
         print(login)
         _run = Confirm()
-        print(_run.confirm(login, 96))
+        print(_run.confirm(login, 55))

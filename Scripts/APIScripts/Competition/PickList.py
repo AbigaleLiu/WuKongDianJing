@@ -24,7 +24,6 @@ class PickList:
         request = requests.get(pick_list_url, post_data, headers=headers)
         time = GetCurrentTime().getCurrentTime()
         status_code = request.status_code
-        print(pick_list_url)
         try:
             if status_code in (200, 422):
                 json = request.json()
@@ -39,6 +38,6 @@ class PickList:
 
 
 if __name__ == '__main__':
-    login = Login().login("18708125570", "aaaaaa")
+    login = Login().login("18712345657", "aaaaaa")
     _run = PickList()
-    print(_run.pick_list(login, 99, 1))
+    print(_run.pick_list(login, 46, 1))

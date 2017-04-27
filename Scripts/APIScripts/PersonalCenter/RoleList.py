@@ -39,10 +39,20 @@ class RoleList:
 
 
 if __name__ == "__main__":
-    login = Login().login("18708125570", "aaaaaa")
-    print("add:")
-    print(AddRole().add_role(login, 1))
-    print("rolelist:")
-    r = RoleList()
-    print(r.role_list(login))
-    print(r.role_list(login)["data"][2]["id"])
+    # login = Login().login("18708125570", "aaaaaa")
+    # print("add:")
+    # print(AddRole().add_role(login, 1))
+    # print("rolelist:")
+    # r = RoleList()
+    # print(r.role_list(login))
+    # print(r.role_list(login)["data"][2]["id"])
+    users = GetUsers().get_users()
+    for user in range(len(users)):
+        login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
+        print(login)
+        r = RoleList()
+        print(r.role_list(login))
+        print(r.role_list(login)["data"][-1]["id"])
+
+
+

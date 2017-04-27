@@ -14,9 +14,9 @@ class ConfigFile:
         请求接口主机
         :return:
         """
-        host_local = "192.168.1.184:8015"  # v 2.0 测试服
-        host_official = "http://api.gvgcn.com"  # 正式服
-        return host_local
+        host_local = "192.168.5.184:8015"  # v 2.0 测试服
+        host_official = "apiv2.gvgcn.com"  # 正式服
+        return host_official
 
     def activity_id(self):
         """
@@ -39,7 +39,8 @@ class ConfigFile:
         已注册用户文件路径
         :return: users_path
         """
-        users_path = r"F:\wukogndianjing\Scripts\users.xlsx"
+        # users_path = r"F:\wukogndianjing\Scripts\users.xlsx"
+        users_path = r"F:\wukogndianjing\Scripts\User.xlsx"
         return users_path
 
     def case_path(self):
@@ -129,12 +130,14 @@ class ConfigFile:
         rounds = int(math.log2(int(people_num))) + 1
         for i in range(1, rounds):
             list.append(i)
+        third_reward = base_num / sum(range(1, rounds)) * list[-i]
+        reward["3"] = int(third_reward)
         for i in range(1, rounds):
-            per_reward = math.floor(base_num / sum(range(1, rounds)) * list[-i])
-            reward["%d" % i] = "%d" % per_reward
+            per_reward = math.floor((base_num-third_reward) / sum(range(1, rounds)) * list[-i])
+            reward["%d" % 2**(i-1)] = "%d" % per_reward
             reward_all = reward_all + per_reward
-        if reward_all != base_num:
-            reward["1"] = str(int(reward["1"]) + base_num - reward_all)
+        if (reward_all+third_reward) != base_num:
+            reward["1"] = str(int(reward["1"]) + base_num - reward_all - int(third_reward))
         return reward
 
 

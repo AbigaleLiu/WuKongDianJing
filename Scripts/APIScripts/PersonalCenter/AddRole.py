@@ -12,7 +12,7 @@ class AddRole:
     """
     添加游戏角色
     """
-    def add_role(self, login, game_id):
+    def add_role(self, login, game_id, name):
         """
         添加游戏角色
         :param login:登录
@@ -20,8 +20,8 @@ class AddRole:
         :return:
         """
         post_data = {"gameId": "%d" % game_id,
-                     "gamePlayer": "%s" % ConfigFile().game_role_name(game_id),
-                     "gameServiceId": "%s" % GameRegion().game_region(game_id)["data"][0]["id"]}
+                     "gamePlayer": "%s" % name,#% ConfigFile().game_role_name(game_id),
+                     "gameServiceId": '146'}#"%s" %  GameRegion().game_region(game_id)["data"][0]["id"]}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
@@ -49,8 +49,13 @@ class AddRole:
 
 if __name__ == "__main__":
     users = GetUsers().get_users()
-    for user in range(len(users)):
+    roles = []
+    for i in range(661, 722):
+        role = "i"+str(i)+"#"+"8%d" % i
+        roles.append(role)
+    for user in range(61, len(users)):
         login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
         print(login)
         r = AddRole()
-        print(r.add_role(login, 1))
+        print(roles[user-61])
+        print(r.add_role(login, 1, roles[user-61]))

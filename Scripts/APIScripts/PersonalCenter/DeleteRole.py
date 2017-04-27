@@ -41,7 +41,11 @@ class DeleteRole:
 
 
 if __name__ == '__main__':
-    login = Login().login("18708125570", "aaaaaa")
-    r = DeleteRole()
-    print(r.delete_role(login, 151))
-    print(RoleList().role_list(login))
+    users = GetUsers().get_users()
+    for user in range(len(users)):
+        login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
+        # print(login)
+        r = DeleteRole()
+        if RoleList().role_list(login)["data"]:
+            role_id = RoleList().role_list(login)["data"][-1]["id"]
+            print(r.delete_role(login, role_id))

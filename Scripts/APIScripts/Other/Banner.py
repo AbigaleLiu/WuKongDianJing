@@ -15,7 +15,8 @@ class Banner:
         获取banner列表
         :return: 接口返回的json数据
         """
-        post_data = {"delivery": "%s" % random.randint(1, 7)}  # 1-首页弹窗 2-资讯 3-蟠桃园 4-赛事 5-附近 6- new-投票 7-启动页
+        # post_data = {"delivery": "%s" % random.randint(1, 7)}  # 1-首页弹窗 2-资讯 3-蟠桃园 4-赛事 5-附近 6- new-投票 7-启动页
+        post_data = {"delivery": "7"}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',

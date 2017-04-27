@@ -91,8 +91,6 @@ class GetUsers:
         return signin_ways
 
 
-def main():
-    r = GetUsers()
-    r.get_uid()
 if __name__ == "__main__":
-    main()
+    _run = GetUsers()
+    print(_run.get_users())

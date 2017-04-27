@@ -74,7 +74,7 @@ class GetCurrentTime:
         time_round = datetime.datetime.now() + datetime.timedelta(minutes=31)
         print(time_round)
         for round in range(rounds+1):
-            time_round = time_round + datetime.timedelta(minutes=10)
+            time_round = time_round + datetime.timedelta(minutes=15)
             time = time_round.strftime("%Y-%m-%d %H:%M:%S")
             rule_time.append(time)
         return rule_time

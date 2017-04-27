@@ -54,13 +54,13 @@ class CreateMatch:
             game = "守望"
         if model == "common":
             model_name = "常规"
-            frozen = 100
+            frozen = random.choice([100, 200, 1000])
             reward = ConfigFile().raward(people_num, frozen)
             post_data02 = {"frozen": frozen,  # int，总蟠桃数
                            "common_rewardrule": reward}  # Array,奖金规则,数组的键一定不能变(1,2,3,4,8,16)
         else:
             model_name = "奖池"
-            entry_fee = 111
+            entry_fee = 10
             reward = ConfigFile().raward(people_num)
             post_data02 = {"apply_money": entry_fee,  # Int,报名费用.
                            "money_rewardrule": reward}  # Array,奖金规则.eg：{"1":50}
@@ -102,21 +102,25 @@ class CreateMatch:
 
 
 if __name__ == '__main__':
-    login = Login().login(GetUsers().get_mobile(), GetUsers().get_password())
+    login = Login().login(18712345600, "aaaaaa")
     _run = CreateMatch()
-    post_data = _run.post_data(login, 1, "money", 111111)
-    # post_data = {"gameId": 1,
-    #              "activityType": 2,
-    #              "title": "炉石常规22日14:30",
-    #              "activity_rule_id": 3,
-    #              "activity_people": 1,
-    #              "model": "common",
-    #              "timerule": ['2017-04-18 15:11', '2017-04-18 15:21', '2017-04-18 15:31', '2017-04-18 15:41'],
-    #              "password": 111111,
-    #              "remark": "1111",
-    #              "frozen": "100",
-    #              "common_rewardrule": {'1':60,'2':30,'3':10}}
-    print(_run.create_match(login, post_data))
+    # post_data = _run.post_data(login, 1, "money", 111111)
+    for i in range(20):
+        post_data = {"gameId": 1,
+                     "activityType": 1,
+                     "title": "自动创建比赛%d" % i,
+                     "activity_rule_id": 3,
+                     "activity_people": 3,
+                     "model": "common",
+                     # "timerule": ['2017-04-11 15:30', '2017-04-11 15:41', '2017-04-11 15:52', '2017-04-11 16:03','2017-04-11 16:14','2017-04-11 16:25','2017-04-11 16:36'],
+                     "timerule": ['2017-04-26 23:44', '2017-04-31 18:21', '2017-04-31 19:32', '2017-04-31 20:32'],
+                     # "timerule": ['2017-04-30 16:07', '2017-05-31 15:21', '2017-05-31 15:32', '2017-05-31 15:43'],
+                     # "timerule": ['2017-03-30 16:07', '2017-03-31 15:21', '2017-03-31 15:32', '2017-03-31 15:43','2017-03-31 15:54','2017-03-31 16:05','2017-03-31 16:16','2017-03-31 16:27','2017-03-31 16:38','2017-03-31 16:49','2017-03-31 17:41'],
+                     "password": 123456,
+                     "remark": "1111",
+                     "frozen": "100",
+                     "common_rewardrule": {'1': 50, '2': 30, '3': 20}}
+        print(_run.create_match(login, post_data))
 
 
 

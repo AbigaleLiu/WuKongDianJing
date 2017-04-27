@@ -38,11 +38,13 @@ class Login:
                 info = request.reason
         finally:
             log_list = [u'登录', u"post", login_url, str(post_data), time, status_code, info]
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志
 
-    def run(self):
-        pass
 if __name__ == "__main__":
-    t = Login()
-    print(t.login("18708125500", "aaaaaa"))
+    users = GetUsers().get_users()
+    _run = Login()
+    # print(_run.login("18712345601", "aaaaaa"))
+    for user in range(len(users)):
+        login = _run.login(GetUsers().get_mobile(user), GetUsers().get_password(user))
+        print(login)
