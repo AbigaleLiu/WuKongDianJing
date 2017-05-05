@@ -10,12 +10,12 @@ class PickList:
     """
     获取可选择的英雄/地图列表
     """
-    def pick_list(self, login, id, screenings):
+    def pick_list(self, token, id, screenings):
         post_data = {"screenings": "%d" % screenings}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   'Authorization': login["data"]["auth_token"],
+                   'Authorization': token,
                    "Date": "%s" % GetCurrentTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",

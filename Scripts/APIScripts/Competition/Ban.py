@@ -1,5 +1,6 @@
 # _*_ coding:utf-8 _*_
 import requests
+import multiprocessing as mul_t
 from Scripts.GetCurrentTime import *
 from Scripts.GetReport import *
 from Scripts.GetUsers import *
@@ -11,13 +12,13 @@ class Ban:
     """
     提交禁选的英雄/地图
     """
-    def ban(self, login, id, screenings, heros):
+    def ban(self, token, id, screenings, heros):
         post_data = {"screenings": "%d" % screenings,
                      "heros": "%s" % heros}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   'Authorization': login["data"]["auth_token"],
+                   'Authorization': token,
                    "Date": "%s" % GetCurrentTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
@@ -39,8 +40,8 @@ class Ban:
             GetReport().get_report()  # 生成或打开日志文件
             GetReport().record_into_report(log_list)  # 逐条写入日志
 
-    def ban_heros(self, login):
-        pick_data = BanList().ban_list(login, id, screenings)["data"]
+    def ban_heros(self, token):
+        pick_data = BanList().ban_list(token, id, screenings)["data"]
         if type(pick_data) is dict:
             pick_list = []
             sign_num = pick_data["sign_num"]
@@ -52,12 +53,28 @@ class Ban:
                 heros = heros + str(hero) + ","
             return heros
 
+    def get_data(self):
+        """
+        获取xml文件中保存的token
+        :return:
+        """
+        tokens = []
+        workbook = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\wk.xlsx")  # 打开文件
+        sheet = workbook.sheet_by_name(r"wk")  # 根据索引获取工作表
+        for row_num in range(sheet.nrows):
+            row = sheet.row_values(row_num)
+            token = "Bearer " + row[0]
+            tokens.append(token)
+        return tokens  # 返回token
+
 
 if __name__ == '__main__':
-    id = 76  # 赛事ID
+    id = 97  # 赛事ID
     screenings = 1  # 轮次
-    users = GetUsers().get_users()
-    for user in range(6,80):
-        login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
-        _run = Ban()
-        print(_run.ban(login, id, screenings, "11,15"))
+    pool = mul_t.Pool(processes=10)
+    result = []
+    for token in Ban().get_data():
+        # heros = Ban().ban_heros(token, id, screenings)
+        result.append(pool.apply_async(func=Ban().ban, args=(token, id, screenings, "11,12")))
+    for r in result:
+        print(r.get())

@@ -1,17 +1,14 @@
 # _*_ coding:utf-8 _*_
 import requests
 import random
+import multiprocessing as mul_t
 from Scripts.GetCurrentTime import *
 from Scripts.GetReport import *
 from Scripts.GetUsers import *
 from Scripts.APIScripts.Other.Login import *
 from Scripts.APIScripts.Competition.PickList import *
-from Scripts.GetReport import GetReport
-
 from Scripts.GetCurrentTime import GetCurrentTime
-
 from Scripts.GetUsers import GetUsers
-
 from Scripts.APIScripts.Other.Login import Login
 
 
@@ -19,13 +16,13 @@ class Pick:
     """
     提交选择的英雄/地图
     """
-    def pick(self, login, id, screenings, heros):
+    def pick(self, token, id, screenings, heros):
         post_data = {"screenings": "%d" % screenings,
                      "heros": "%s" % heros}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   'Authorization': login["data"]["auth_token"],
+                   'Authorization': token,
                    "Date": "%s" % GetCurrentTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
@@ -43,11 +40,18 @@ class Pick:
                 info = request.reason
         finally:
             log_list = [u'提交选择的英雄或地图', u"post", pick_url, str(post_data), time, status_code, info]  # 单条日志记录
-            # GetReport().get_report()  # 生成或打开日志文件
-            # GetReport().record_into_report(log_list)  # 逐条写入日志
+            GetReport().get_report()  # 生成或打开日志文件
+            GetReport().record_into_report(log_list)  # 逐条写入日志
 
-    def pick_heros(self, login):
-        pick_data = PickList().pick_list(login, id, screenings)["data"]
+    def pick_heros(self, token, id, screenings):
+        """
+        获取可选英雄列表
+        :param token:
+        :param id:
+        :param screenings:
+        :return:
+        """
+        pick_data = PickList().pick_list(token, id, screenings)["data"]
         if type(pick_data) is dict:
             pick_list = []
             sign_num = pick_data["sign_num"]
@@ -59,13 +63,28 @@ class Pick:
                 heros = heros + str(hero) + ","
             return heros
 
+    def get_data(self):
+        """
+        获取xml文件中保存的token
+        :return:
+        """
+        tokens = []
+        workbook = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\wk.xlsx")  # 打开文件
+        sheet = workbook.sheet_by_name(r"wk")  # 根据索引获取工作表
+        for row_num in range(sheet.nrows):
+            row = sheet.row_values(row_num)
+            token = "Bearer " + row[0]
+            tokens.append(token)
+        return tokens  # 返回token
+
 
 if __name__ == '__main__':
-    id = 76  # 赛事ID
+    result = []
+    id = 97  # 赛事ID
     screenings = 1  # 轮次
-    users = GetUsers().get_users()
-    for user in range(2, 120):
-        login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
-        _run = Pick()
-        heros = _run.pick_heros(login)
-        print(_run.pick(login, id, screenings, "11,12,13,14,15"))
+    pool = mul_t.Pool(processes=10)
+    for token in Pick().get_data():
+        # heros = Pick().pick_heros(token, id, screenings)
+        result.append(pool.apply_async(func=Pick().pick, args=(token, id, screenings, "11,12,13,14,15")))
+    for r in result:
+        print(r.get())
