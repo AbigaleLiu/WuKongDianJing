@@ -3,82 +3,76 @@
 """
 运行脚本文件
 """
-from datetime import *
-from Scripts.GetCurrentTime import *
-from Scripts.GetReport import *
-from Scripts.GetUsers import *
-from Scripts.APIScripts.Other.Login import *
-from Scripts.APIScripts.Competition.CreateMatch import *
 from Scripts.APIScripts.Competition.ApplyMatch import *
-from Scripts.APIScripts.PersonalCenter.RoleList import *
-from Scripts.APIScripts.PersonalCenter.AddRole import *
 from Scripts.APIScripts.Competition.Confirm import *
 from Scripts.APIScripts.Competition.Pick import *
-
+from Scripts.APIScripts.Competition.Ban import *
+from Scripts.APIScripts.Competition.Win import *
+from Scripts.APIScripts.Competition.Lose import *
 
 class RunScript:
-    # def run_script(self, judge_login, post_data, id, game_id):
-    #     # CreateMatch().create_match(judge_login, post_data)  # 创建比赛
-    #     # print("创建比赛")
-    #     users = GetUsers().get_users()
-    #     # for user in range(len(users)):
-    #     #     login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
-    #     #     print("用户登录")
-    #     #     if RoleList().role_list(login)["data"]:
-    #     #         role_id = RoleList().role_list(login)["data"][-1]["id"]
-    #     #         print("获取角色ID")
-    #     #     else:
-    #     #         print(AddRole().add_role(login, game_id))
-    #     #         role_id = RoleList().role_list(login)["data"][-1]["id"]
-    #     #     print(ApplyMatch().apply_match(login, id, role_id))
-    #     login_try = Login().login(GetUsers().get_mobile(), GetUsers().get_password())
-    #     if Confirm().confirm(login_try, id)["info"] != "确认参赛成功":
-    #         print("不能正常完成确认参赛")
-    #         self.run_task(Confirm().confirm, minutes=1, login_try, id)
-    #         print("定时执行")
-    #     else:
-    #         for user in range(len(users)):
-    #             login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
-    #             print("用户登录")
-    #             print(Confirm().confirm(login, id))
-    #
-    # def run_task(self, func, minutes, *args):
-    #     now_time = datetime.datetime.now()
-    #     print(now_time)
-    #     period = datetime.timedelta(minutes=minutes)
-    #     next_time = period + now_time
-    #     print("下一次执行", next_time.strftime('%Y-%m-%d %H:%M:%S'))
-    #     while True:
-    #         iter_now = datetime.datetime.now()
-    #         iter_now_time = iter_now.strftime('%Y-%m-%d %H:%M:%S')
-    #         if str(iter_now_time) == str(next_time.strftime('%Y-%m-%d %H:%M:%S')):
-    #             print(iter_now_time)
-    #             func(args)
-    #             iter_time = iter_now + period
-    #             next_time = iter_time
-    #             continue
-    def run(self, id):
-        users = GetUsers().get_users()
-        for user in range(len(users)):
-            login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
-            print(login)
-            _run = Pick()
-            print(_run.pick(login, id))
+    def get_token(self):
+        tokens = []
+        workbook = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\wk.xlsx")  # 打开文件
+        sheet = workbook.sheet_by_name(r"wk")  # 根据索引获取工作表
+        for i in sheet.col_values(0):
+            tokens.append("Bearer " + i)
+        return tokens
 
+    def get_role_id(self):
+        role_ids = []
+        workbook = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\wk.xlsx")  # 打开文件
+        sheet = workbook.sheet_by_name(r"wk")  # 根据索引获取工作表
+        for i in sheet.col_values(1):
+            role_ids.append(int(i))
+        return role_ids
 
-if __name__ == "__main__":
-    judge_login = Login().login("13330944792", "123456")
-    # print(judge_login)
-    post_data = {"gameId": 1,
-                 "activityType": 1,
-                 "title": "自动运行脚本",
-                 "activity_rule_id": 3,
-                 "activity_people": 1,
-                 "model": "common",
-                 "timerule": ['2017-03-28 9:45', '2017-03-28 15:21', '2017-03-28 15:31', '2017-03-28 15:41'],
-                 "password": None,
-                 "remark": "1111",
-                 "frozen": "100",
-                 "common_rewardrule": {'1': 60, '2': 30, '3': 10}}
+    def competition(self, id, confirm_time, pick_time, screenings=1, pick_heros="11,12,13,14,15", ban_heros = "11,12"):
+        """
+        自动运行比赛脚本
+        :param id: 比赛ID
+        :param confirm_time: 距确认参赛开始时间（单位：s）
+        :param pick_time: 距签到开始时间（单位：s）
+        :param screenings: 当前轮次
+        :param pick_heros: 签到选择的英雄
+        :param ban_heros: Ban选择的英雄
+        :return: 
+        """
+        # 报名
+        for user in range(len(self.get_token())):
+            token = self.get_token()[user]
+            role_id = self.get_role_id()[user]
+            if screenings == 1:
+                ApplyMatch().apply_match(id, token, role_id)
+        time.sleep(confirm_time)
+        # 确认参赛
+        for user in range(len(self.get_token())):
+            token = self.get_token()[user]
+            if screenings == 1:
+                Confirm().confirm(token, id)
+        time.sleep(pick_time)
+        # Pick
+        for user in range(len(self.get_token())):
+            token = self.get_token()[user]
+            Pick().pick_heros(token, id, screenings, pick_heros)
+        # Ban
+        for user in range(len(self.get_token())):
+            token = self.get_token()[user]
+            Ban().ban(token, id, screenings, ban_heros)
+        # 提交结果，随机提交胜或负
+        for user in range(len(self.get_token())):
+            token = self.get_token()[user]
+            random_num = random.randint(1, 2)
+            if random_num == 1:
+                Win().win(token, id, screenings)
+            else:
+                Lose().lose(token, id, screenings)
+
+if __name__ == '__main__':
     _run = RunScript()
-    print(_run.run_script(judge_login, post_data, 146, 1))
+    _run.competition(447, 120, 300, 1)
+
+
+
+
+

@@ -1,5 +1,6 @@
 # _*_ coding:utf-8 _*_
 from Scripts.APIScripts.Other.Login import *
+from Scripts.APIScripts.Other.Register import *
 
 
 class PersonalUpdate:
@@ -37,11 +38,14 @@ class PersonalUpdate:
                 info = request.reason
         finally:
             log_list = [u'编辑个人资料', u"put", personal_info_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
 if __name__ == "__main__":
-    login = Login().login("18708125570", "aaaaaa")
     r = PersonalUpdate()
-    print(r.personal_update(login))
+    users = Register().register_user()
+    print(len(users))
+    for user in users:
+        login = Login().login(user, "aaaaaa")
+        print(r.personal_update(login))

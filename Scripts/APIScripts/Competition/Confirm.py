@@ -55,16 +55,10 @@ class Confirm:
 
 
 if __name__ == '__main__':
-    # users = GetUsers().get_users()
-    # for user in range(1,80):
-    #     login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
-    #     print(login)
-    #     _run = Confirm()
-    #     print(_run.confirm(login, 55))
     result = []
-    pool = mul_t.Pool(processes=10)
+    pool = mul_t.Pool(processes=100)
     for token in Confirm().get_data():
-        result.append(pool.apply_async(func=Confirm().confirm, args=(token, 104)))
+        result.append(pool.apply_async(func=Confirm().confirm, args=(token, 454)))
     pool.close()
     pool.join()
     for r in result:

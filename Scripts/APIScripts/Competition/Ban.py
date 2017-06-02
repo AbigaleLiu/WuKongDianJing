@@ -37,8 +37,8 @@ class Ban:
                 info = request.reason
         finally:
             log_list = [u'提交禁选的英雄或地图', u"put", ban_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志
 
     def ban_heros(self, token):
         pick_data = BanList().ban_list(token, id, screenings)["data"]
@@ -69,9 +69,9 @@ class Ban:
 
 
 if __name__ == '__main__':
-    id = 97  # 赛事ID
-    screenings = 1  # 轮次
-    pool = mul_t.Pool(processes=10)
+    id = 454  # 赛事ID
+    screenings = 7  # 轮次
+    pool = mul_t.Pool(processes=100)
     result = []
     for token in Ban().get_data():
         # heros = Ban().ban_heros(token, id, screenings)

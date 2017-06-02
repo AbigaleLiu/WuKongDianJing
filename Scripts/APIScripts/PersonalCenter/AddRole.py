@@ -6,6 +6,7 @@ from Scripts.GetReport import *
 from Scripts.ConfigFile import *
 from Scripts.GetCurrentTime import *
 from Scripts.GetUsers import *
+from Scripts.APIScripts.Other.Register import *
 
 
 class AddRole:
@@ -43,19 +44,20 @@ class AddRole:
                 info = request.reason
         finally:
             log_list = [u'添加游戏角色', u"post", add_role_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志
+
 
 
 if __name__ == "__main__":
-    users = GetUsers().get_users()
+    users = Register().register_user()
     roles = []
-    for i in range(661, 722):
-        role = "i"+str(i)+"#"+"8%d" % i
+    for i in range(1, 1000):
+        role = "角色"+str(i)+"#"+str(i).zfill(5)
         roles.append(role)
-    for user in range(61, len(users)):
-        login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
+    for user in range(len(users)):
+        login = Login().login(users[user], "aaaaaa")
         print(login)
         r = AddRole()
-        print(roles[user-61])
-        print(r.add_role(login, 1, roles[user-61]))
+        print(roles[user])
+        print(r.add_role(login, 1, roles[user]))

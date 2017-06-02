@@ -33,8 +33,8 @@ class MatchPeople:
                 info = request.reason
         finally:
             log_list = [u'创建比赛-人数方案', u"get", match_people_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
 if __name__ == '__main__':

@@ -2,6 +2,7 @@
 import os
 import random
 import math
+import time
 import json
 """
 配置文件
@@ -16,6 +17,7 @@ class ConfigFile:
         """
         host_local = "192.168.5.184:8015"  # v 2.0 测试服
         host_official = "apiv2.gvgcn.com"  # 正式服
+        # return host_local
         return host_official
 
     def activity_id(self):
@@ -61,30 +63,35 @@ class ConfigFile:
 
     def birthday(self):
         """
-        随机生成出生日期
+        随机生成出生日期的时间戳
         :return: str
         """
-        year = random.randint(1950, 2017)
-        month = random.randint(1, 12)
-        day = random.randint(1, 30)
-        birthday = "%d-%d-%d" % (year, month, day)
-        return birthday
+        year = random.randint(1970, 2016)
+        month = str(random.randint(1, 12)).zfill(2)
+        day = str(random.randint(1, 28)).zfill(2)
+        birthday = "%d-%s-%s" % (year, month, day)
+        timestamp = int(time.mktime(time.strptime(birthday, '%Y-%m-%d')))
+        return timestamp
 
     def nickname(self):
         """
         随机选择昵称
         :return: str
         """
-        nickname = random.choice((u"海纳百川",
-                                  u"迷雾沼泽",
-                                  u"有理想的大师",
-                                  u"夜色",
-                                  u"蓝蓝蓝蓝",
-                                  u"鱼儿水中游",
-                                  u"梧桐木",
-                                  u"清风道长",
-                                  u"策马江湖",
-                                  u"会开花的树"))
+        sub01 = ['温柔', '内向', '腼腆', '害羞', '多疑', '直率', '活泼', '开朗', '滑稽', '可笑', '古怪', '怪异',
+                 '狭窄', '宽容', '多情', '冷淡', '热情', '拘谨', '谨慎', '严格', '严厉', '凶残', '开朗', '随和',
+                 '健谈', '狡猾', '老实', '稳重', '幼稚', '调皮', '活泼', '内向', '善良', '足智多谋', '木讷寡言',
+                 '心胸狭窄', '忠厚老实', '阴险狡诈', '乐天达观', '成熟稳重', '幼稚调皮', '温柔体贴', '活泼可爱',
+                 '普普通通', '内向害羞', '外向开朗', '心地善良', '聪明伶俐', '善解人意', '风趣幽默', '思想开放',
+                 '积极进取', '小心谨慎', '郁郁寡欢', '正义正直', '悲观失意', '好吃懒做', '处事洒脱', '多愁善感']
+        sub02 = ['的', '', '滴', '哒']
+        sub03 = ['科姆', '琼', '尼基', '贝蒂', '琳达', '特尼', '丽丽', '芭芭', '丽莎', '海伦', '凯瑟',
+                 '李', '凯丽', '玫', '朱莉', '曼达', '菲奥', '爱米', '里塔', '杰西', '里莎',
+                 '安', '戴安', '菲奥', '朱迪', '杜丽', '鲁迪', '阿达', '雪莉', '琼', '特西', '雪莉',
+                 '索菲', '维安', '莉莉', '乔埃', '罗丝', '朱莉', '格亚', '卡萝', '泰勒', '温迪', '格里',
+                 '维维', '罗琳', '萨曼', '利亚', '凯特', '戴米', '萨妮', '温迪', '阿瓦', '克里', '蒂娜', '朱迪',
+                 '苏珊', '里斯', '丽丝', '乔西', '萨丽', '玛莉', '贝卡']
+        nickname = random.choice(sub01) + random.choice(sub02) + random.choice(sub03)
         return nickname
 
     def game_role_name(self, game_id):
@@ -93,29 +100,8 @@ class ConfigFile:
         :return: str
         """
         if game_id == 1:
-            game_role_name = random.choice((u"海纳百川#12121",
-                                            u"迷雾沼泽#14144",
-                                            u"有理想的大师#122334",
-                                            u"夜色#4414",
-                                            u"蓝蓝蓝蓝#4532",
-                                            u"鱼儿水中游#5223",
-                                            u"梧桐木#1224",
-                                            u"清风道长#5345",
-                                            u"策马江湖#5678",
-                                            u"会开花的树#9089"))
-        else:
-            game_role_name = random.choice((u"海纳百川",
-                                            u"迷雾沼泽",
-                                            u"有理想的大师",
-                                            u"夜色",
-                                            u"蓝蓝蓝蓝",
-                                            u"鱼儿水中游",
-                                            u"梧桐木",
-                                            u"清风道长",
-                                            u"策马江湖",
-                                            u"会开花的树"))
-        # game_role_name = u"清风道长"
-        return game_role_name
+            game_role_name = self.nickname() + "#" + "51422"
+            return game_role_name
 
     def raward(self, people_num, base_num=100):
         """
@@ -143,4 +129,4 @@ class ConfigFile:
 
 if __name__ == '__main__':
     _run = ConfigFile()
-    print(_run.raward(8))
+    print(_run.birthday())

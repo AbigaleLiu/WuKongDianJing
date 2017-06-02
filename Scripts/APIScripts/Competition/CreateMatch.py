@@ -35,8 +35,8 @@ class CreateMatch:
                 info = request.reason
         finally:
             log_list = [u'发布比赛', u"post", create_match_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志
 
     def post_data(self, login, game_id, model, password=None):
         type = random.choice(MatchType().match_type(login, game_id)["data"])["id"]
@@ -104,22 +104,22 @@ class CreateMatch:
 if __name__ == '__main__':
     login = Login().login(18712345600, "aaaaaa")
     _run = CreateMatch()
-    # post_data = _run.post_data(login, 1, "money", 111111)
+    post_data = _run.post_data(login, 1, "money", 111111)
     for i in range(100):
-        post_data = {"gameId": 1,
-                     "activityType": 1,
-                     "title": "自动创建比赛%d" % i,
-                     "activity_rule_id": 3,
-                     "activity_people": 3,
-                     "model": "common",
-                     # "timerule": ['2017-04-11 15:30', '2017-04-11 15:41', '2017-04-11 15:52', '2017-04-11 16:03','2017-04-11 16:14','2017-04-11 16:25','2017-04-11 16:36'],
-                     "timerule": ['2017-05-26 23:44', '2017-05-31 18:21', '2017-05-31 19:32', '2017-05-31 20:32'],
-                     # "timerule": ['2017-04-30 16:07', '2017-05-31 15:21', '2017-05-31 15:32', '2017-05-31 15:43'],
-                     # "timerule": ['2017-03-30 16:07', '2017-03-31 15:21', '2017-03-31 15:32', '2017-03-31 15:43','2017-03-31 15:54','2017-03-31 16:05','2017-03-31 16:16','2017-03-31 16:27','2017-03-31 16:38','2017-03-31 16:49','2017-03-31 17:41'],
-                     "password": 123456,
-                     "remark": "1111",
-                     "frozen": "100",
-                     "common_rewardrule": {'1': 50, '2': 30, '3': 20}}
+        # post_data = {"gameId": 1,
+        #              "activityType": 1,
+        #              "title": "自动创建比赛%d" % i,
+        #              "activity_rule_id": 3,
+        #              "activity_people": 3,
+        #              "model": "common",
+        #              # "timerule": ['2017-04-11 15:30', '2017-04-11 15:41', '2017-04-11 15:52', '2017-04-11 16:03','2017-04-11 16:14','2017-04-11 16:25','2017-04-11 16:36'],
+        #              "timerule": ['2017-05-26 23:44', '2017-05-31 18:21', '2017-05-31 19:32', '2017-05-31 20:32'],
+        #              # "timerule": ['2017-04-30 16:07', '2017-05-31 15:21', '2017-05-31 15:32', '2017-05-31 15:43'],
+        #              # "timerule": ['2017-03-30 16:07', '2017-03-31 15:21', '2017-03-31 15:32', '2017-03-31 15:43','2017-03-31 15:54','2017-03-31 16:05','2017-03-31 16:16','2017-03-31 16:27','2017-03-31 16:38','2017-03-31 16:49','2017-03-31 17:41'],
+        #              "password": 123456,
+        #              "remark": "1111",
+        #              "frozen": "100",
+        #              "common_rewardrule": {'1': 50, '2': 30, '3': 20}}
         print(_run.create_match(login, post_data))
 
 

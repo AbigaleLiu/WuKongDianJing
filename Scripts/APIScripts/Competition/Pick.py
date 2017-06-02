@@ -40,8 +40,8 @@ class Pick:
                 info = request.reason
         finally:
             log_list = [u'提交选择的英雄或地图', u"post", pick_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志
 
     def pick_heros(self, token, id, screenings):
         """
@@ -80,11 +80,10 @@ class Pick:
 
 if __name__ == '__main__':
     result = []
-    id = 97  # 赛事ID
-    screenings = 1  # 轮次
-    pool = mul_t.Pool(processes=10)
+    id = 454  # 赛事ID
+    screenings = 7  # 轮次
+    pool = mul_t.Pool(processes=100)
     for token in Pick().get_data():
-        # heros = Pick().pick_heros(token, id, screenings)
         result.append(pool.apply_async(func=Pick().pick, args=(token, id, screenings, "11,12,13,14,15")))
     for r in result:
         print(r.get())

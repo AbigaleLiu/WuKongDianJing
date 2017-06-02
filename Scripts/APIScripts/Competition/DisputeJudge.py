@@ -1,5 +1,6 @@
 # _*_ coding:utf-8 _*_
 import requests
+import multiprocessing as mul_t
 from Scripts.GetCurrentTime import *
 from Scripts.GetReport import *
 from Scripts.GetUsers import *
@@ -10,7 +11,7 @@ class DisputeJudge:
     """
     争议处理
     """
-    def dispute_judge(self, login, id, dispute_id ,winner_id):
+    def dispute_judge(self, token, id, dispute_id ,winner_id):
         """
 
         :param login:
@@ -23,7 +24,7 @@ class DisputeJudge:
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   'Authorization': login["data"]["auth_token"],
+                   'Authorization': token,
                    "Date": "%s" % GetCurrentTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
@@ -46,6 +47,11 @@ class DisputeJudge:
 
 
 if __name__ == '__main__':
-    login = Login().login("18708125570", "aaaaaa")
-    _run = DisputeJudge()
-    print(_run.dispute_judge(login, 1, 1, 1))
+        id = 241  # 赛事ID
+        screenings = 1  # 轮次
+        pool = mul_t.Pool(processes=10)
+        result = []
+        for token in Lose().get_data():
+            result.append(pool.apply_async(func=Lose().lose, args=(token, id, screenings)))
+        for r in result:
+            print(r.get())

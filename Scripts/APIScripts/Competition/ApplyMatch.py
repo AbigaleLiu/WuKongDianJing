@@ -46,36 +46,35 @@ class ApplyMatch:
                 print(info)
         finally:
             log_list = [u'报名比赛', u"post", apply_match_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+    #         GetReport().get_report()  # 生成或打开日志文件
+    #         GetReport().record_into_report(log_list)  # 逐条写入日志
 
-    # def get_data(self):
-    #     users = GetUsers().get_users()
-    #     datas = {}
-    #     for user in range(len(users)):
-    #         login = Login().login(GetUsers().get_mobile(user), GetUsers().get_password(user))
-    #         token = login["data"]["auth_token"]
-    #         role_id = RoleList().role_list(login)["data"][-1]["id"]
-    #         datas[token] = role_id
-    #      # print(datas)
-    #     return datas
-    def get_data(self):
-        datas = {}
+    def get_token(self):
+        tokens = []
         workbook = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\wk.xlsx")  # 打开文件
         sheet = workbook.sheet_by_name(r"wk")  # 根据索引获取工作表
-        for row_num in range(sheet.nrows):
-            row = sheet.row_values(row_num)
-            datas[row_num+1] = "Bearer " + row[0]
-        return datas
+        for i in sheet.col_values(0):
+            tokens.append("Bearer " + i)
+        return tokens
+
+    def get_role_id(self):
+        role_ids = []
+        workbook = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\wk.xlsx")  # 打开文件
+        sheet = workbook.sheet_by_name(r"wk")  # 根据索引获取工作表
+        for i in sheet.col_values(1):
+            role_ids.append(int(i))
+        return role_ids
 
 
 if __name__ == "__main__":
-    pool = mul_p.Pool(processes=10)
+    pool = mul_p.Pool(processes=100)
     result = []
     instance = ApplyMatch()
-    user_datas = instance.get_data()
-    for role_id in user_datas:
-        result.append(pool.apply_async(func=instance.apply_match, args=(104, user_datas[role_id], role_id)))
+    user_datas = instance.get_token()
+    role_ids = instance.get_role_id()
+    for user in range(len(user_datas)):
+        role_id = role_ids[user]
+        result.append(pool.apply_async(func=instance.apply_match, args=(454, user_datas[user], role_id)))
     pool.close()
     pool.join()
     for r in result:
