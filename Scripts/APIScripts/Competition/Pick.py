@@ -69,8 +69,8 @@ class Pick:
         :return:
         """
         tokens = []
-        workbook = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\wk.xlsx")  # 打开文件
-        sheet = workbook.sheet_by_name(r"wk")  # 根据索引获取工作表
+        workbook = xlrd.open_workbook(r"F:\wukogndianjing\Scripts\token&others(local).xlsx")  # 打开文件
+        sheet = workbook.sheet_by_name(r"tokens")  # 根据索引获取工作表
         for row_num in range(sheet.nrows):
             row = sheet.row_values(row_num)
             token = "Bearer " + row[0]
@@ -80,10 +80,10 @@ class Pick:
 
 if __name__ == '__main__':
     result = []
-    id = 454  # 赛事ID
-    screenings = 7  # 轮次
+    id = 48  # 赛事ID
+    screenings = 1  # 轮次
     pool = mul_t.Pool(processes=100)
     for token in Pick().get_data():
-        result.append(pool.apply_async(func=Pick().pick, args=(token, id, screenings, "11,12,13,14,15")))
+        result.append(pool.apply_async(func=Pick().pick, args=(token, id, screenings, "1,10,2,8,9")))
     for r in result:
         print(r.get())

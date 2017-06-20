@@ -5,7 +5,6 @@ from Scripts.GetCurrentTime import *
 from Scripts.GetReport import *
 from Scripts.GetUsers import *
 from Scripts.APIScripts.Other.Login import *
-from Scripts.APIScripts.Competition.Lose import *
 from Scripts.ConfigFile import *
 
 
@@ -13,7 +12,7 @@ class Result:
     """
     提交选择“胜”或者“负”
     """
-    def win(self, token, id=ConfigFile().activity_id(), screenings=1):
+    def win(self, token, id, screenings=1):
         post_data = {"screenings": "%d" % screenings}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
@@ -67,16 +66,18 @@ class Result:
 
 
 if __name__ == '__main__':
-        id = 36  # 赛事ID4
-        screenings = 1  # 轮次
+        id = 53  # 赛事ID4
+        screenings = 2  # 轮次
         pool = mul_t.Pool(processes=100)
         result = []
         for token in ConfigFile().get_token():
-            result_num = random.choice((1, 2))
-            if result_num == 1:
-                result.append(pool.apply_async(func=Result().win, args=(token, id, screenings)))
-            elif result_num == 2:
-                result.append(pool.apply_async(func=Result().lose, args=(token, id, screenings)))
+            result.append(pool.apply_async(func=Result().win, args=(token, id, screenings)))
+        # for token in ConfigFile().get_token():
+        #     result_num = random.choice((1, 2))
+        #     if result_num == 1:
+        #         result.append(pool.apply_async(func=Result().win, args=(token, id, screenings)))
+        #     elif result_num == 2:
+        #         result.append(pool.apply_async(func=Result().lose, args=(token, id, screenings)))
         for r in result:
             print(r.get())
 

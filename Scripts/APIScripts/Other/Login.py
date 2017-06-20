@@ -1,8 +1,10 @@
 # _*_ coding:utf-8 _*_
 import requests
+
 from Scripts.GetCurrentTime import *
 from Scripts.ConfigFile import *
-from Scripts.GetReport import *
+# from Scripts.GetReport import *
+# from Scripts.APIScripts.Other.Register import *
 
 
 class Login:
@@ -41,10 +43,3 @@ class Login:
             # GetReport().get_report()  # 生成或打开日志文件
             # GetReport().record_into_report(log_list)  # 逐条写入日志
 
-if __name__ == "__main__":
-    users = GetUsers().get_users()
-    _run = Login()
-    # print(_run.login("18712345601", "aaaaaa"))
-    for user in range(len(users)):
-        login = _run.login(GetUsers().get_mobile(user), GetUsers().get_password(user))
-        print(login)

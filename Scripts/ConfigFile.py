@@ -3,7 +3,8 @@ import os
 import random
 import math
 import time
-import json
+import xlrd
+import sys
 """
 配置文件
 """
@@ -17,16 +18,28 @@ class ConfigFile:
         """
         host_local = "192.168.5.184:8015"  # v 2.0 测试服
         host_official = "apiv2.gvgcn.com"  # 正式服
-        # return host_local
-        return host_official
+        return host_local
+        # return host_official
 
     def activity_id(self):
         """
         比赛ID
         :return: activity_id
         """
-        activity_id = "10823"
+        activity_id = input("输入比赛ID：")
         return activity_id
+
+    def extra_file_path(self):
+        """
+        获取相关文件公共路径
+        :return: 
+        """
+        path = sys.path[0]  # 获取脚本路径
+        # 判断为脚本文件还是py2exe编译后的文件，如果是脚本文件，则返回的是脚本的目录，如果是py2exe编译后的文件，则返回的是编译后的文件路径
+        if os.path.isdir(path):
+            return path
+        elif os.path.isfile(path):
+            return os.path.dirname(path)
 
     def report_path(self):
         """
@@ -52,6 +65,19 @@ class ConfigFile:
         """
         case_path = r"F:\wukogndianjing\Scripts\Cases"
         return case_path
+
+    def register_user(self):
+        """
+        获取新注册用户手机号
+        :return: 
+        """
+        mobiles = []
+        workbook = xlrd.open_workbook(self.extra_file_path() + "\\" + "register_users.xlsx")  # 打开文件
+        sheet = workbook.sheet_by_name(r"mobiles")  # 根据索引获取工作表
+        for i in range(sheet.nrows):
+            mobile = str(int(sheet.col_values(0)[i]))
+            mobiles.append(mobile)
+        return mobiles
 
     def pictures(self):
         pictures = []
@@ -126,7 +152,47 @@ class ConfigFile:
             reward["1"] = str(int(reward["1"]) + base_num - reward_all - int(third_reward))
         return reward
 
+    def file_name(self):
+        """
+        根据链接的不同服务器选择对应的数据文件
+        :return: file_name 
+        """
+        if self.host() == "192.168.5.184:8015":  # v 2.0 测试服
+            file_name = "token&others(local).xlsx"
+        elif self.host() == "apiv2.gvgcn.com":  # 正式服
+            file_name = "token&others(official).xlsx"
+        return file_name
+
+    def get_token(self):
+        """
+        获取数据文件中用户token
+        :return: tokens列表
+        """
+        tokens = []
+        # workbook = xlrd.open_workbook(self.extra_file_path() + "\\" + self.file_name())  # 打开文件
+        workbook = xlrd.open_workbook(os.path.join(os.path.dirname(__file__) + "/" + self.file_name()))  # 打开文件
+        sheet = workbook.sheet_by_name(r"tokens")  # 根据索引获取工作表
+        for i in sheet.col_values(0):
+            tokens.append("Bearer " + i)
+        return tokens
+
+    def get_role_id(self):
+        """
+        用户roleID
+        :return: role_ids列表
+        """
+        role_ids = []
+        workbook = xlrd.open_workbook(self.extra_file_path() + "\\" + self.file_name())  # 打开文件
+        sheet = workbook.sheet_by_name(r"role_ids")  # 根据索引获取工作表
+        for i in sheet.col_values(0):
+            role_ids.append(int(i))
+        return role_ids
+
+    # def get_round_time(self, id):
+    #     json = MatchInfo().match_info(id)  # 获取赛事信息
+    #     timestamp = json["data"]["timeRule"]  # 获取赛事信息中的时间戳列表
+
 
 if __name__ == '__main__':
     _run = ConfigFile()
-    print(_run.birthday())
+    print(_run.get_judgement_token())

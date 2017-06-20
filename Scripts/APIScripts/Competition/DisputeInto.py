@@ -10,7 +10,7 @@ class DisputeInto:
     """
     获取争议处理页面信息
     """
-    def dispute_into(self, login, id, dispute_id):
+    def dispute_into(self, judgement_token, id, dispute_id):
         """
 
         :param login:
@@ -22,7 +22,7 @@ class DisputeInto:
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   'Authorization': login["data"]["auth_token"],
+                   'Authorization': judgement_token,
                    "Date": "%s" % GetCurrentTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
@@ -40,11 +40,5 @@ class DisputeInto:
                 info = request.reason
         finally:
             log_list = [u'获取争议处理页面信息', u"put", dispute_into_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
-
-
-if __name__ == '__main__':
-    login = Login().login("18708125570", "aaaaaa")
-    _run = DisputeInto()
-    print(_run.dispute_into(login, 1, 1))
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志

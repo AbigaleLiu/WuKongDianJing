@@ -23,7 +23,7 @@ class ApplyMatch:
         """
         post_data = {"id": "%d" % id,
                     "roleId": "%d" % role_id,
-                    "password": "%s" % ""}
+                    "password": "%s" % "123456"}
         headers = {"Cache - Control": "no - cache",
                     "Content - Type": "text / html;charset = UTF - 8",
                     'Accept': 'application/json',
@@ -49,36 +49,8 @@ class ApplyMatch:
     #         GetReport().get_report()  # 生成或打开日志文件
     #         GetReport().record_into_report(log_list)  # 逐条写入日志
 
-    def get_token(self):
-        tokens = []
-        workbook = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\wk.xlsx")  # 打开文件
-        sheet = workbook.sheet_by_name(r"wk")  # 根据索引获取工作表
-        for i in sheet.col_values(0):
-            tokens.append("Bearer " + i)
-        return tokens
-
-    def get_role_id(self):
-        role_ids = []
-        workbook = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\wk.xlsx")  # 打开文件
-        sheet = workbook.sheet_by_name(r"wk")  # 根据索引获取工作表
-        for i in sheet.col_values(1):
-            role_ids.append(int(i))
-        return role_ids
 
 
-if __name__ == "__main__":
-    pool = mul_p.Pool(processes=100)
-    result = []
-    instance = ApplyMatch()
-    user_datas = instance.get_token()
-    role_ids = instance.get_role_id()
-    for user in range(len(user_datas)):
-        role_id = role_ids[user]
-        result.append(pool.apply_async(func=instance.apply_match, args=(454, user_datas[user], role_id)))
-    pool.close()
-    pool.join()
-    for r in result:
-        print(r.get())
 
 
 

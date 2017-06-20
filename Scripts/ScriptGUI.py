@@ -55,6 +55,8 @@ class ScriptGUI(QtWidgets.QWidget):
         layout.setSpacing(10)  # 设置网格间距为10
         self.match_id_layout.setLayout(layout)
 
+        return match_id_lineEdit.text()
+
     def parameter_file_GUI(self):
         self.parameter_file_layout = QtWidgets.QGroupBox("用户文件")
 
@@ -88,7 +90,6 @@ class ScriptGUI(QtWidgets.QWidget):
         self.process.setMinimum(0)
         self.process.setMaximum(self.test_data())
 
-
         layout.addWidget(self.process)
 
         self.data_layout.setLayout(layout)
@@ -107,9 +108,6 @@ class ScriptGUI(QtWidgets.QWidget):
         for i in range(100):
             i =+1
             return i
-
-
-
 
 
 if __name__ == '__main__':

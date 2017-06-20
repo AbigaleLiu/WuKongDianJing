@@ -53,6 +53,7 @@ class Register:
 
 if __name__ == "__main__":
     r = Register()
+    # print(r.register("14700001231","aaaaaa"))
     pool = mul_p.Pool(processes=100)
     result = []
     instance = Register()

@@ -29,10 +29,10 @@ class MatchInfo:
                 info = request.reason
         finally:
             log_list = [u'赛事详情', u"get", match_info_url, str(post_data), time, status_code, info]  # 单条日志记录
-            GetReport().get_report()  # 生成或打开日志文件
-            GetReport().record_into_report(log_list)  # 逐条写入日志
+            # GetReport().get_report()  # 生成或打开日志文件
+            # GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
 if __name__ == '__main__':
     _run = MatchInfo()
-    print(_run.match_info(19))
+    print(_run.match_info(371))

@@ -48,14 +48,13 @@ class AddRole:
             # GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
-
 if __name__ == "__main__":
     users = Register().register_user()
     roles = []
-    for i in range(1, 1000):
+    for i in range(1, 2101):
         role = "角色"+str(i)+"#"+str(i).zfill(5)
         roles.append(role)
-    for user in range(len(users)):
+    for user in range(1230, len(users)):
         login = Login().login(users[user], "aaaaaa")
         print(login)
         r = AddRole()
