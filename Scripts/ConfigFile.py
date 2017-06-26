@@ -26,7 +26,7 @@ class ConfigFile:
         比赛ID
         :return: activity_id
         """
-        activity_id = input("输入比赛ID：")
+        activity_id = 66
         return activity_id
 
     def extra_file_path(self):
@@ -182,11 +182,30 @@ class ConfigFile:
         :return: role_ids列表
         """
         role_ids = []
-        workbook = xlrd.open_workbook(self.extra_file_path() + "\\" + self.file_name())  # 打开文件
+        workbook = xlrd.open_workbook(os.path.join(os.path.dirname(__file__) + "/" + self.file_name()))  # 打开文件
         sheet = workbook.sheet_by_name(r"role_ids")  # 根据索引获取工作表
         for i in sheet.col_values(0):
             role_ids.append(int(i))
         return role_ids
+
+    def get_uid(self):
+        uids = []
+        workbook = xlrd.open_workbook(os.path.join(os.path.dirname(__file__) + "/" + self.file_name()))  # 打开文件
+        sheet = workbook.sheet_by_name(r"uids")  # 根据索引获取工作表
+        for i in sheet.col_values(0):
+            uids.append(int(i))
+        return uids
+
+    def uid_token_bonds(self):
+        uids = self.get_uid()
+        tokens = self.get_token()
+        if len(uids) == len(tokens):
+            uid_token_bonds = dict(map(lambda uid,token: [uid,token], self.get_uid(),self.get_token()))
+        else:
+            uid_token_bonds = "wrong"
+        return uid_token_bonds
+
+
 
     # def get_round_time(self, id):
     #     json = MatchInfo().match_info(id)  # 获取赛事信息
@@ -195,4 +214,6 @@ class ConfigFile:
 
 if __name__ == '__main__':
     _run = ConfigFile()
-    print(_run.get_judgement_token())
+    # print(_run.uid_token_bonds())
+    for i in _run.uid_token_bonds():
+        print()

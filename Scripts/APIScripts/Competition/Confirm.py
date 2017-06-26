@@ -58,7 +58,7 @@ if __name__ == '__main__':
     result = []
     pool = mul_t.Pool(processes=100)
     for token in Confirm().get_token():
-        result.append(pool.apply_async(func=Confirm().confirm, args=(token, 53)))
+        result.append(pool.apply_async(func=Confirm().confirm, args=(token, 66)))
     pool.close()
     pool.join()
     for r in result:

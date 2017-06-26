@@ -69,7 +69,7 @@ class Ban:
 
 
 if __name__ == '__main__':
-    id = 48  # 赛事ID
+    id = 62  # 赛事ID
     screenings = 1  # 轮次
     pool = mul_t.Pool(processes=100)
     result = []

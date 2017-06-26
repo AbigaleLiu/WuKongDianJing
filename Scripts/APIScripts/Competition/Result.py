@@ -33,6 +33,7 @@ class Result:
                 return json
             else:
                 info = request.reason
+                print(info)
         finally:
             log_list = [u'提交结果为胜', u"post", win_url, str(post_data), time, status_code, info]  # 单条日志记录
             # GetReport().get_report()  # 生成或打开日志文件
@@ -59,6 +60,7 @@ class Result:
                 return json
             else:
                 info = request.reason
+                print(info)
         finally:
             log_list = [u'提交结果为负', u"post", lose_url, str(post_data), time, status_code, info]  # 单条日志记录
             # GetReport().get_report()  # 生成或打开日志文件
@@ -66,8 +68,8 @@ class Result:
 
 
 if __name__ == '__main__':
-        id = 53  # 赛事ID4
-        screenings = 2  # 轮次
+        id = 63  # 赛事ID4
+        screenings = 1  # 轮次
         pool = mul_t.Pool(processes=100)
         result = []
         for token in ConfigFile().get_token():

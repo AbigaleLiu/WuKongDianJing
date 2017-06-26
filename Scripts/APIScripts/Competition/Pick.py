@@ -80,7 +80,7 @@ class Pick:
 
 if __name__ == '__main__':
     result = []
-    id = 48  # 赛事ID
+    id = 62  # 赛事ID
     screenings = 1  # 轮次
     pool = mul_t.Pool(processes=100)
     for token in Pick().get_data():

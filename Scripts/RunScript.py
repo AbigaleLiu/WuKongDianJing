@@ -19,8 +19,7 @@ class RunScript:
     def __init__(self):
         self.tokens = ConfigFile().get_token()
         self.role_ids = ConfigFile().get_role_id()
-        self.match_id = int(input("赛事ID："))
-        # self.match_id = ScriptGUI().match_id_GUI()
+        self.match_id = ConfigFile().activity_id()
 
     def competition(self):
         """
@@ -45,29 +44,6 @@ class RunScript:
             print(r.get())
         end_apply = timeit.default_timer()
         execute_time = math.ceil(end_apply - start_apply)  # 程序执行耗费时间
-        # time.sleep((confirm_time+1)*60)
-        # # 确认参赛
-        # # for user in range(len(self.get_token())):
-        # #     token = self.get_token()[user]
-        # #     if screenings == 1:
-        # #         Confirm().confirm(token, id)
-        # # time.sleep(pick_time)
-        # # # Pick
-        # # for user in range(len(self.get_token())):
-        # #     token = self.get_token()[user]
-        # #     Pick().pick_heros(token, id, screenings, pick_heros)
-        # # # Ban
-        # # for user in range(len(self.get_token())):
-        # #     token = self.get_token()[user]
-        # #     Ban().ban(token, id, screenings, ban_heros)
-        # # # 提交结果，随机提交胜或负
-        # # for user in range(len(self.get_token())):
-        # #     token = self.get_token()[user]
-        # #     random_num = random.randint(1, 2)
-        # #     if random_num == 1:
-        # #         Win().win(token, id, screenings)
-        # #     else:
-        # #         Lose().lose(token, id, screenings)
 
 if __name__ == '__main__':
     _run = RunScript()
