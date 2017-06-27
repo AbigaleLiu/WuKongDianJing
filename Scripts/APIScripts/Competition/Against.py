@@ -51,8 +51,9 @@ class Against:
             against_page = self.against_page(token, match_id, screening, page)
             if against_page["data"]:
                 for user in against_page["data"]:
-                    pairs = [user["users"][0]["uid"], user["users"][1]["uid"]]
-                    against_data.append(pairs)
+                    if user["users"][0]["uid"] != 0 or user["users"][1]["uid"] != 0:
+                        pairs = [user["users"][0]["uid"], user["users"][1]["uid"]]
+                        against_data.append(pairs)
                 page = page + 1
             else:
                 break
@@ -63,5 +64,5 @@ if __name__ == '__main__':
     login = Login().login("14700000001", "aaaaaa")
     _run = Against()
     # print(_run.against_page(login["data"]["auth_token"], 53, 2))
-    print(_run.against(login["data"]["auth_token"], 53, 2))
+    print(_run.against(login["data"]["auth_token"], 66, 2))
 

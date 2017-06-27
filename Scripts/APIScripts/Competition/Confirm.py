@@ -11,7 +11,7 @@ class Confirm:
     """
     确认参赛
     """
-    def confirm(self, token, id):
+    def confirm(self, token, match_id):
         """
         确认参赛
         :param login: json格式，获取token
@@ -27,7 +27,7 @@ class Confirm:
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
                    "Transfer - Encoding": "chunked"}
-        confirm_url = "http://%s/activity/%d/confirm" % (ConfigFile().host(), id)
+        confirm_url = "http://%s/activity/%d/confirm" % (ConfigFile().host(), match_id)
         request = requests.put(confirm_url, data=post_data, headers=headers)
         time = GetCurrentTime().getCurrentTime()
         status_code = request.status_code
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     result = []
     pool = mul_t.Pool(processes=100)
     for token in Confirm().get_token():
-        result.append(pool.apply_async(func=Confirm().confirm, args=(token, 66)))
+        result.append(pool.apply_async(func=Confirm().confirm, args=(token, 126)))
     pool.close()
     pool.join()
     for r in result:

@@ -26,8 +26,16 @@ class ConfigFile:
         比赛ID
         :return: activity_id
         """
-        activity_id = 66
+        activity_id = 126
         return activity_id
+
+    def screening(self):
+        """
+        轮次
+        :return:
+        """
+        screening = 2
+        return screening
 
     def extra_file_path(self):
         """

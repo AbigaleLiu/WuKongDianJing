@@ -33,7 +33,7 @@
     <SUITE FILE_PATH="coverage/wukogndianjing$Register.coverage" NAME="Register Coverage Results" MODIFIED="1497344930776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Other" />
     <SUITE FILE_PATH="coverage/wukogndianjing$Dispute.coverage" NAME="Dispute Coverage Results" MODIFIED="1497941087135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$TitleSign.coverage" NAME="TitleSign Coverage Results" MODIFIED="1490066930707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
-    <SUITE FILE_PATH="coverage/wukogndianjing$RunScript.coverage" NAME="RunScript Coverage Results" MODIFIED="1498466681864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/wukogndianjing$RunScript.coverage" NAME="RunScript Coverage Results" MODIFIED="1498534352579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/wukogndianjing$PersonalUpdate.coverage" NAME="PersonalUpdate Coverage Results" MODIFIED="1495091776041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/PersonalCenter" />
     <SUITE FILE_PATH="coverage/wukogndianjing$RoleList.coverage" NAME="RoleList Coverage Results" MODIFIED="1492848201921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/PersonalCenter" />
     <SUITE FILE_PATH="coverage/wukogndianjing$Win.coverage" NAME="Win Coverage Results" MODIFIED="1497859883832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
@@ -43,7 +43,7 @@
     <SUITE FILE_PATH="coverage/悟空电竞$Login.coverage" NAME="Login Coverage Results" MODIFIED="1487135265057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/PersonalCenter" />
     <SUITE FILE_PATH="coverage/wukogndianjing$GuessInfo.coverage" NAME="GuessInfo Coverage Results" MODIFIED="1493967914616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/EventQuiz" />
     <SUITE FILE_PATH="coverage/wukogndianjing$1.coverage" NAME="1 Coverage Results" MODIFIED="1497600432612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
-    <SUITE FILE_PATH="coverage/wukogndianjing$Confirm.coverage" NAME="Confirm Coverage Results" MODIFIED="1498466768061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
+    <SUITE FILE_PATH="coverage/wukogndianjing$Confirm.coverage" NAME="Confirm Coverage Results" MODIFIED="1498534732303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$GameRegion.coverage" NAME="GameRegion Coverage Results" MODIFIED="1489129680910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/PersonalCenter" />
     <SUITE FILE_PATH="coverage/wukogndianjing$DeleteRole.coverage" NAME="DeleteRole Coverage Results" MODIFIED="1492850679623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/PersonalCenter" />
     <SUITE FILE_PATH="coverage/wukogndianjing$PersonalInfo__1_.coverage" NAME="PersonalInfo (1) Coverage Results" MODIFIED="1487658392065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/PersonalCenter" />
@@ -59,27 +59,27 @@
     <SUITE FILE_PATH="coverage/wukogndianjing$TitleJudge.coverage" NAME="TitleJudge Coverage Results" MODIFIED="1490067947782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$Ban.coverage" NAME="Ban Coverage Results" MODIFIED="1498035485219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$DisputeJudge.coverage" NAME="DisputeJudge Coverage Results" MODIFIED="1489992735176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
-    <SUITE FILE_PATH="coverage/wukogndianjing$RunJudge.coverage" NAME="RunJudge Coverage Results" MODIFIED="1498467271298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/wukogndianjing$RunJudge.coverage" NAME="RunJudge Coverage Results" MODIFIED="1498541723768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/wukogndianjing$ConfigFile.coverage" NAME="ConfigFile Coverage Results" MODIFIED="1498448010340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/wukogndianjing$GameBackgroudImage.coverage" NAME="GameBackgroudImage Coverage Results" MODIFIED="1489481257728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/PersonalCenter" />
     <SUITE FILE_PATH="coverage/wukogndianjing$GetUsers.coverage" NAME="GetUsers Coverage Results" MODIFIED="1491893974825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/wukogndianjing$SendCode.coverage" NAME="SendCode Coverage Results" MODIFIED="1489480484973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Other" />
     <SUITE FILE_PATH="coverage/wukogndianjing$TitleRecord.coverage" NAME="TitleRecord Coverage Results" MODIFIED="1490068172992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
-    <SUITE FILE_PATH="coverage/wukogndianjing$CreateMatch.coverage" NAME="CreateMatch Coverage Results" MODIFIED="1497842652251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
+    <SUITE FILE_PATH="coverage/wukogndianjing$CreateMatch.coverage" NAME="CreateMatch Coverage Results" MODIFIED="1498529327040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$TitleBP.coverage" NAME="TitleBP Coverage Results" MODIFIED="1490067969251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$ScriptGUI.coverage" NAME="ScriptGUI Coverage Results" MODIFIED="1498134958376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/wukogndianjing$Config.coverage" NAME="Config Coverage Results" MODIFIED="1489483566622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$DisputeInto.coverage" NAME="DisputeInto Coverage Results" MODIFIED="1489991126811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$Lose.coverage" NAME="Lose Coverage Results" MODIFIED="1497075036425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$DisputeInfo.coverage" NAME="DisputeInfo Coverage Results" MODIFIED="1497942768048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
-    <SUITE FILE_PATH="coverage/wukogndianjing$RunResult.coverage" NAME="RunResult Coverage Results" MODIFIED="1498469190397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
+    <SUITE FILE_PATH="coverage/wukogndianjing$RunResult.coverage" NAME="RunResult Coverage Results" MODIFIED="1498535767367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
     <SUITE FILE_PATH="coverage/wukogndianjing$GetInviteCode.coverage" NAME="GetInviteCode Coverage Results" MODIFIED="1489133337392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/PersonalCenter" />
     <SUITE FILE_PATH="coverage/wukogndianjing$PersonalInfo.coverage" NAME="PersonalInfo Coverage Results" MODIFIED="1489133515996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/PersonalCenter" />
     <SUITE FILE_PATH="coverage/wukogndianjing$MatchRule.coverage" NAME="MatchRule Coverage Results" MODIFIED="1490775848104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$ComplainType.coverage" NAME="ComplainType Coverage Results" MODIFIED="1489480803287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/PersonalCenter" />
     <SUITE FILE_PATH="coverage/wukogndianjing$Banner.coverage" NAME="Banner Coverage Results" MODIFIED="1490778452310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Other" />
     <SUITE FILE_PATH="coverage/wukogndianjing$MatchCreated.coverage" NAME="MatchCreated Coverage Results" MODIFIED="1489998042009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
-    <SUITE FILE_PATH="coverage/wukogndianjing$Against.coverage" NAME="Against Coverage Results" MODIFIED="1498440074800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
+    <SUITE FILE_PATH="coverage/wukogndianjing$Against.coverage" NAME="Against Coverage Results" MODIFIED="1498533889023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$Pick__1_.coverage" NAME="Pick (1) Coverage Results" MODIFIED="1489548649087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$Opponent.coverage" NAME="Opponent Coverage Results" MODIFIED="1489543183132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
     <SUITE FILE_PATH="coverage/wukogndianjing$test.coverage" NAME="test Coverage Results" MODIFIED="1497518862316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scripts" />
@@ -96,30 +96,30 @@
       <file leaf-file-name="ConfigFile.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/ConfigFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+            <state relative-caret-position="356">
+              <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
               <folding>
                 <element signature="e#23#32#0" expanded="true" />
                 <element signature="e#155#202#1" expanded="false" />
-                <element signature="e#550#852#0" expanded="false" />
-                <element signature="e#889#1047#0" expanded="false" />
-                <element signature="e#1083#1293#0" expanded="false" />
-                <element signature="e#1328#1467#0" expanded="false" />
-                <element signature="e#1506#1893#0" expanded="false" />
-                <element signature="e#1927#2196#0" expanded="false" />
-                <element signature="e#2230#2581#0" expanded="false" />
-                <element signature="e#2230#2287#1" expanded="false" />
-                <element signature="e#2615#3789#0" expanded="false" />
-                <element signature="e#2683#3174#0" expanded="false" />
-                <element signature="e#3227#3679#0" expanded="false" />
-                <element signature="e#3838#4012#0" expanded="false" />
-                <element signature="e#4070#4894#0" expanded="false" />
-                <element signature="e#4929#5000#1" expanded="false" />
-                <element signature="e#5280#5344#1" expanded="false" />
-                <element signature="e#5775#6132#0" expanded="false" />
-                <element signature="e#5775#5835#1" expanded="false" />
-                <element signature="e#6765#6796#0" expanded="false" />
-                <marker date="1498467017811" expanded="true" signature="5675:5716" ph="..." />
+                <element signature="e#676#978#0" expanded="false" />
+                <element signature="e#1015#1173#0" expanded="false" />
+                <element signature="e#1209#1419#0" expanded="false" />
+                <element signature="e#1454#1593#0" expanded="false" />
+                <element signature="e#1632#2019#0" expanded="false" />
+                <element signature="e#2053#2322#0" expanded="false" />
+                <element signature="e#2356#2707#0" expanded="false" />
+                <element signature="e#2356#2413#1" expanded="false" />
+                <element signature="e#2741#3915#0" expanded="false" />
+                <element signature="e#2809#3300#0" expanded="false" />
+                <element signature="e#3353#3805#0" expanded="false" />
+                <element signature="e#3964#4138#0" expanded="false" />
+                <element signature="e#4196#5020#0" expanded="false" />
+                <element signature="e#5055#5126#1" expanded="false" />
+                <element signature="e#5406#5470#1" expanded="false" />
+                <element signature="e#5901#6258#0" expanded="false" />
+                <element signature="e#5901#5961#1" expanded="false" />
+                <element signature="e#6891#6922#0" expanded="false" />
+                <marker date="1498535767274" expanded="true" signature="5801:5842" ph="..." />
               </folding>
             </state>
           </provider>
@@ -128,45 +128,12 @@
       <file leaf-file-name="RunResult.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scripts/RunResult.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="261">
+              <caret line="76" column="55" lean-forward="true" selection-start-line="76" selection-start-column="55" selection-end-line="76" selection-end-column="55" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
-                <element signature="e#712#1107#0" expanded="false" />
-                <element signature="e#712#761#1" expanded="false" />
-                <element signature="e#1922#2378#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="codecs.py" pinned="false" current-in-tab="false">
-        <entry file="file://F:/pyhon3.6/Lib/codecs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parse.py" pinned="false" current-in-tab="false">
-        <entry file="file://F:/pyhon3.6/Lib/urllib/parse.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="761" column="0" lean-forward="false" selection-start-line="761" selection-start-column="0" selection-end-line="761" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Against.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scripts/APIScripts/Competition/Against.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-              <folding>
-                <element signature="e#1582#1725#1" expanded="false" />
+                <element signature="e#819#868#1" expanded="false" />
+                <element signature="e#2495#2548#1" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -175,8 +142,8 @@
       <file leaf-file-name="RunJudge.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/RunJudge.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="17" column="50" lean-forward="true" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+            <state relative-caret-position="-57">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -197,8 +164,8 @@
       <file leaf-file-name="Confirm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/APIScripts/Competition/Confirm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1045">
-              <caret line="60" column="78" lean-forward="false" selection-start-line="60" selection-start-column="78" selection-end-line="60" selection-end-column="78" />
+            <state relative-caret-position="266">
+              <caret line="26" column="56" lean-forward="true" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -247,7 +214,6 @@
         <option value="$PROJECT_DIR$/Scripts/test.py" />
         <option value="$PROJECT_DIR$/Scripts/1.py" />
         <option value="$PROJECT_DIR$/Scripts/ScriptGUI.py" />
-        <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/CreateMatch.py" />
         <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/Lose.py" />
         <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/Win.py" />
         <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/ApplyMatch.py" />
@@ -261,12 +227,13 @@
         <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/Pick.py" />
         <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/Ban.py" />
         <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/Result.py" />
-        <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/Against.py" />
-        <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/Confirm.py" />
-        <option value="$PROJECT_DIR$/Scripts/ConfigFile.py" />
         <option value="$PROJECT_DIR$/Scripts/RunScript.py" />
         <option value="$PROJECT_DIR$/Scripts/RunJudge.py" />
+        <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/Against.py" />
+        <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/CreateMatch.py" />
+        <option value="$PROJECT_DIR$/Scripts/APIScripts/Competition/Confirm.py" />
         <option value="$PROJECT_DIR$/Scripts/RunResult.py" />
+        <option value="$PROJECT_DIR$/Scripts/ConfigFile.py" />
       </list>
     </option>
   </component>
@@ -311,6 +278,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -379,7 +347,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -414,7 +381,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.RunResult">
+  <component name="RunManager" selected="Python.RunJudge">
     <configuration default="false" name="RunResult" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -434,20 +401,20 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="ConfigFile" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="Against" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts/APIScripts/Competition" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="untitled" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/ConfigFile.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/APIScripts/Competition/Against.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -612,18 +579,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.RunResult" />
-      <item index="1" class="java.lang.String" itemvalue="Python.ConfigFile" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Against" />
       <item index="2" class="java.lang.String" itemvalue="Python.RunScript" />
       <item index="3" class="java.lang.String" itemvalue="Python.Confirm" />
       <item index="4" class="java.lang.String" itemvalue="Python.RunJudge" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.RunResult" />
-        <item index="1" class="java.lang.String" itemvalue="Python.RunJudge" />
+        <item index="0" class="java.lang.String" itemvalue="Python.RunJudge" />
+        <item index="1" class="java.lang.String" itemvalue="Python.RunResult" />
         <item index="2" class="java.lang.String" itemvalue="Python.Confirm" />
         <item index="3" class="java.lang.String" itemvalue="Python.RunScript" />
-        <item index="4" class="java.lang.String" itemvalue="Python.ConfigFile" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Against" />
       </list>
     </recent_temporary>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -750,34 +717,9 @@
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scripts/RunResult.py</url>
-          <line>34</line>
-          <option name="timeStamp" value="283" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scripts/RunResult.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="285" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scripts/RunResult.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="286" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scripts/RunResult.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="287" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scripts/RunResult.py</url>
-          <line>13</line>
-          <option name="timeStamp" value="288" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Scripts/RunResult.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="289" />
+          <url>file://$PROJECT_DIR$/Scripts/APIScripts/Competition/Against.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="305" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -787,7 +729,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="290" />
+      <option name="time" value="307" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -887,13 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="632">
           <caret line="251" column="8" lean-forward="false" selection-start-line="251" selection-start-column="8" selection-end-line="251" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/APIScripts/Competition/CreateMatch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="104" column="37" lean-forward="false" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1063,7 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1079,7 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="482" column="0" lean-forward="false" selection-start-line="482" selection-start-column="0" selection-end-line="482" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1088,6 +1021,40 @@
         <state relative-caret-position="170">
           <caret line="253" column="0" lean-forward="false" selection-start-line="253" selection-start-column="0" selection-end-line="253" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/pyhon3.6/Lib/urllib/parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14421">
+          <caret line="761" column="0" lean-forward="false" selection-start-line="761" selection-start-column="0" selection-end-line="761" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/pyhon3.6/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/APIScripts/Competition/CreateMatch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="115" column="105" lean-forward="false" selection-start-line="115" selection-start-column="105" selection-end-line="115" selection-end-column="105" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/APIScripts/Competition/Against.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="e#1582#1725#1" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1103,85 +1070,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/APIScripts/Competition/Confirm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="60" column="78" lean-forward="false" selection-start-line="60" selection-start-column="78" selection-end-line="60" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/RunJudge.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="17" column="50" lean-forward="true" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+        <state relative-caret-position="266">
+          <caret line="26" column="56" lean-forward="true" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/ConfigFile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+        <state relative-caret-position="356">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
           <folding>
             <element signature="e#23#32#0" expanded="true" />
             <element signature="e#155#202#1" expanded="false" />
-            <element signature="e#550#852#0" expanded="false" />
-            <element signature="e#889#1047#0" expanded="false" />
-            <element signature="e#1083#1293#0" expanded="false" />
-            <element signature="e#1328#1467#0" expanded="false" />
-            <element signature="e#1506#1893#0" expanded="false" />
-            <element signature="e#1927#2196#0" expanded="false" />
-            <element signature="e#2230#2581#0" expanded="false" />
-            <element signature="e#2230#2287#1" expanded="false" />
-            <element signature="e#2615#3789#0" expanded="false" />
-            <element signature="e#2683#3174#0" expanded="false" />
-            <element signature="e#3227#3679#0" expanded="false" />
-            <element signature="e#3838#4012#0" expanded="false" />
-            <element signature="e#4070#4894#0" expanded="false" />
-            <element signature="e#4929#5000#1" expanded="false" />
-            <element signature="e#5280#5344#1" expanded="false" />
-            <element signature="e#5775#6132#0" expanded="false" />
-            <element signature="e#5775#5835#1" expanded="false" />
-            <element signature="e#6765#6796#0" expanded="false" />
-            <marker date="1498467017811" expanded="true" signature="5675:5716" ph="..." />
+            <element signature="e#676#978#0" expanded="false" />
+            <element signature="e#1015#1173#0" expanded="false" />
+            <element signature="e#1209#1419#0" expanded="false" />
+            <element signature="e#1454#1593#0" expanded="false" />
+            <element signature="e#1632#2019#0" expanded="false" />
+            <element signature="e#2053#2322#0" expanded="false" />
+            <element signature="e#2356#2707#0" expanded="false" />
+            <element signature="e#2356#2413#1" expanded="false" />
+            <element signature="e#2741#3915#0" expanded="false" />
+            <element signature="e#2809#3300#0" expanded="false" />
+            <element signature="e#3353#3805#0" expanded="false" />
+            <element signature="e#3964#4138#0" expanded="false" />
+            <element signature="e#4196#5020#0" expanded="false" />
+            <element signature="e#5055#5126#1" expanded="false" />
+            <element signature="e#5406#5470#1" expanded="false" />
+            <element signature="e#5901#6258#0" expanded="false" />
+            <element signature="e#5901#5961#1" expanded="false" />
+            <element signature="e#6891#6922#0" expanded="false" />
+            <marker date="1498535767274" expanded="true" signature="5801:5842" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/pyhon3.6/Lib/urllib/parse.py">
+    <entry file="file://$PROJECT_DIR$/Scripts/RunJudge.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="761" column="0" lean-forward="false" selection-start-line="761" selection-start-column="0" selection-end-line="761" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/APIScripts/Competition/Against.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="e#1582#1725#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/pyhon3.6/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+        <state relative-caret-position="-57">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/RunResult.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="261">
+          <caret line="76" column="55" lean-forward="true" selection-start-line="76" selection-start-column="55" selection-end-line="76" selection-end-column="55" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
-            <element signature="e#712#1107#0" expanded="false" />
-            <element signature="e#712#761#1" expanded="false" />
-            <element signature="e#1922#2378#0" expanded="false" />
+            <element signature="e#819#868#1" expanded="false" />
+            <element signature="e#2495#2548#1" expanded="false" />
           </folding>
         </state>
       </provider>
