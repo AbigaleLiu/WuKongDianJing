@@ -8,6 +8,11 @@ from Scripts.APIScripts.Other.Login import *
 
 class MatchAward:
     def match_award(self, id):
+        """
+        全部奖励
+        :param id:
+        :return:
+        """
         post_data = {}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",

@@ -2,7 +2,7 @@
 import requests
 import multiprocessing as mul_p
 from Scripts.GetReport import *
-from Scripts.GetCurrentTime import *
+from Scripts.GetTime import *
 
 
 class Register:
@@ -22,13 +22,13 @@ class Register:
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   "Date": "%s" % GetCurrentTime().getHeaderTime(),
+                   "Date": "%s" % GetTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
                    "Transfer - Encoding": "chunked"}
         register_url = "http://%s/user/register" % ConfigFile().host()
         request = requests.post(register_url, data=post_data, headers=headers)
-        time = GetCurrentTime().getCurrentTime()
+        time = GetTime().getCurrentTime()
         status_code = request.status_code
         try:
             if status_code in (200, 422):

@@ -6,7 +6,7 @@ import math
 import json
 
 
-class GetCurrentTime:
+class GetTime:
     """
     获取当前时间、headers时间、日志文件工作表名（当前日期）
     """

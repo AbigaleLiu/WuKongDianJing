@@ -5,12 +5,17 @@ from Scripts.APIScripts.Competition.Result import *
 
 class RunResult:
     def __init__(self):
-        self.tokens = ConfigFile().get_token()
-        self.judgement_token = Login().login("14700000001", "aaaaaa")["data"]["auth_token"]
-        self.match_id = ConfigFile().activity_id()
-        self.screening = ConfigFile().screening()
+        config_file = ConfigFile()
+        self.tokens = config_file.get_token()
+        self.judgement_token = Login().login(config_file.judgement()[0], config_file.judgement()[1])["data"]["auth_token"]
+        self.match_id = config_file.activity_id()
+        self.screening = config_file.screening()
 
     def run_result(self):
+        """
+        根据输入内容判断是否指定争议数
+        :return:
+        """
         against_pair_token = self.against_pair_token()
         choice = input("是否需要指定争议数目（Y/N）")
         if choice == "Y":
@@ -27,13 +32,22 @@ class RunResult:
         for pair in against_pair_token:
             for token in pair:
                 if token != "0":
-                    result_num = random.choice((1, 2))
+                    result_num = random.choice((1, 2, 3))
                     if result_num == 1:
                         Result().win(token, self.match_id, self.screening)
                     elif result_num == 2:
                         Result().lose(token, self.match_id, self.screening)
+                    else:
+                        pass
 
     def run_result_limit(self, dispute_num, against_pair_token):
+        """
+        根据指定的争议数提交结果，轮空用户自动提交胜，其他用户随机提交
+        :param dispute_num:
+        :param against_pair_token:
+        :return:
+        """
+        # 筛选出有对手的对阵用户ID，轮空用户自动提交胜
         dispute_pair_token = []
         for pair in against_pair_token:
             if pair[0] != "0" and pair[1] != "0":
@@ -42,17 +56,20 @@ class RunResult:
                 Result().win(pair[1], self.match_id, self.screening)
             elif pair[0] != "0" and pair[1] == "0":
                 Result().win(pair[0], self.match_id, self.screening)
+
+        # 生成指定数争议
         if dispute_num <= len(dispute_pair_token):
             for i in range(dispute_num):
                 Result().win(dispute_pair_token[i][0], self.match_id, self.screening)
                 Result().win(dispute_pair_token[i][1], self.match_id, self.screening)
             for i in range(dispute_num, len(dispute_pair_token)):
-                for token in dispute_pair_token[i]:
-                    result_num = random.choice((1, 2))
-                    if result_num == 1:
-                        Result().win(token, self.match_id, self.screening)
-                    elif result_num == 2:
-                        Result().lose(token, self.match_id, self.screening)
+                # for token in dispute_pair_token[i]:
+                #     result_num = random.choice((1, 2))
+                #     if result_num == 1:
+                #         Result().win(token, self.match_id, self.screening)
+                #     elif result_num == 2:
+                #         Result().lose(token, self.match_id, self.screening)
+                Result().win(random.choice(dispute_pair_token[i]), self.match_id, self.screening)
         else:
             return "争议数大于实际"
 

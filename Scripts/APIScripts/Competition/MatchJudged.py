@@ -1,25 +1,21 @@
 # _*_ coding:utf-8 _*_
 import requests
-import multiprocessing as mul_t
-from Scripts.GetTime import *
+from Scripts.GetCurrentTime import *
 from Scripts.GetReport import *
 from Scripts.GetUsers import *
 from Scripts.APIScripts.Other.Login import *
 
 
-class Confirm:
+class MatchJudged:
     """
-    确认参赛
+    我裁定的比赛，即被添加为附加裁判
     """
-    def __init__(self):
-        config_file = ConfigFile()
-        self.match_id = config_file.activity_id()
-
-    def confirm(self, token):
+    def match_judged(self, token, match_status, page):
         """
-        确认参赛
-        :param login: json格式，获取token
-        :param id: 赛事ID
+
+        :param token:
+        :param match_status: 1-报名中  2-比赛中  3-已结束
+        :param page:分页
         :return:
         """
         post_data = {}
@@ -27,14 +23,15 @@ class Confirm:
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
                    'Authorization': token,
-                   "Date": "%s" % GetTime().getHeaderTime(),
+                   "Date": "%s" % GetCurrentTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
                    "Transfer - Encoding": "chunked"}
-        confirm_url = "http://%s/activity/%d/confirm" % (ConfigFile().host(), self.match_id)
-        request = requests.put(confirm_url, data=post_data, headers=headers)
-        time = GetTime().getCurrentTime()
+        match_judged_url = "http://%s/activity/referee/%d?p=%d" % (ConfigFile().host(), match_status, page)
+        request = requests.get(match_judged_url, headers=headers)
+        time = GetCurrentTime().getCurrentTime()
         status_code = request.status_code
+        print(match_judged_url)
         try:
             if status_code in (200, 422):
                 json = request.json()
@@ -42,19 +39,14 @@ class Confirm:
                 return json
             else:
                 info = request.reason
+                print(info)
         finally:
-            log_list = [u'确认参赛', u"put", confirm_url, str(post_data), time, status_code, info]  # 单条日志记录
+            log_list = [u'我裁定的', u"get", match_judged_url, str(post_data), time, status_code, info]  # 单条日志记录
             # GetReport().get_report()  # 生成或打开日志文件
             # GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
 if __name__ == '__main__':
-    result = []
-    pool = mul_t.Pool(processes=100)
-    tokens = ConfigFile().get_token()
-    for token in tokens:
-        result.append(pool.apply_async(func=Confirm().confirm, args=(token,)))
-    pool.close()
-    pool.join()
-    for r in result:
-        print(r.get())
+    token = Login().login("14700000002", "aaaaaa")["data"]["auth_token"]
+    _run = MatchJudged()
+    print(_run.match_judged(token, 3, 1))

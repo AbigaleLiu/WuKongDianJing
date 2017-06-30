@@ -10,12 +10,12 @@ class MatchPeople:
     """
     创建比赛-人数方案
     """
-    def match_people(self, login, game_id):
+    def match_people(self, judgement_token, game_id):
         post_data = {"gameId": "%d" % game_id}  # 游戏ID
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   'Authorization': login["data"]["auth_token"],
+                   'Authorization': judgement_token,
                    "Date": "%s" % GetCurrentTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
@@ -38,7 +38,7 @@ class MatchPeople:
 
 
 if __name__ == '__main__':
-    login = Login().login("18708125570", "aaaaaa")
+    judgement_token = Login().login("18708125570", "aaaaaa")["data"]["auth_token"]
     _run = MatchPeople()
-    print(_run.match_people(login, 1))
-    print(_run.match_people(login, 1)["data"][0]["count"])
+    print(_run.match_people(judgement_token, 1))
+    print(_run.match_people(judgement_token, 1)["data"][0]["count"])

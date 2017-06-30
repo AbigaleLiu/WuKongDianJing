@@ -1,40 +1,40 @@
 # _*_ coding:utf-8 _*_
 import requests
-import multiprocessing as mul_t
-from Scripts.GetTime import *
+from Scripts.GetCurrentTime import *
 from Scripts.GetReport import *
 from Scripts.GetUsers import *
 from Scripts.APIScripts.Other.Login import *
 
 
-class Confirm:
+class RankingAll:
     """
-    确认参赛
+    获取比赛排行榜
     """
     def __init__(self):
         config_file = ConfigFile()
+        self.judgement_token = Login().login(config_file.judgement()[0], config_file.judgement()[1])["data"]["auth_token"]
         self.match_id = config_file.activity_id()
 
-    def confirm(self, token):
+    def ranking_all(self, ranking_type=1):
         """
-        确认参赛
-        :param login: json格式，获取token
-        :param id: 赛事ID
+        获取排行榜
+        :param ranking_type: 1（总榜）；2（周榜）
         :return:
         """
         post_data = {}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   'Authorization': token,
-                   "Date": "%s" % GetTime().getHeaderTime(),
+                   'Authorization': self.judgement_token,
+                   "Date": "%s" % GetCurrentTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
                    "Transfer - Encoding": "chunked"}
-        confirm_url = "http://%s/activity/%d/confirm" % (ConfigFile().host(), self.match_id)
-        request = requests.put(confirm_url, data=post_data, headers=headers)
-        time = GetTime().getCurrentTime()
+        ranking_all_url = "http://%s/activity/activityrank?type=%d" % (ConfigFile().host(), ranking_type)
+        request = requests.get(ranking_all_url, headers=headers)
+        time = GetCurrentTime().getCurrentTime()
         status_code = request.status_code
+        print(request)
         try:
             if status_code in (200, 422):
                 json = request.json()
@@ -43,18 +43,12 @@ class Confirm:
             else:
                 info = request.reason
         finally:
-            log_list = [u'确认参赛', u"put", confirm_url, str(post_data), time, status_code, info]  # 单条日志记录
+            log_list = [u'比赛排行榜', u"get", ranking_all_url, str(post_data), time, status_code, info]  # 单条日志记录
             # GetReport().get_report()  # 生成或打开日志文件
             # GetReport().record_into_report(log_list)  # 逐条写入日志
 
 
 if __name__ == '__main__':
-    result = []
-    pool = mul_t.Pool(processes=100)
-    tokens = ConfigFile().get_token()
-    for token in tokens:
-        result.append(pool.apply_async(func=Confirm().confirm, args=(token,)))
-    pool.close()
-    pool.join()
-    for r in result:
-        print(r.get())
+    login = Login().login(GetUsers().get_mobile(), GetUsers().get_password())
+    _run = RankingAll()
+    print(_run.ranking_all(2))

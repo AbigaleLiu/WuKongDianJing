@@ -26,16 +26,48 @@ class ConfigFile:
         比赛ID
         :return: activity_id
         """
-        activity_id = 126
+        activity_id = 234
         return activity_id
 
-    def screening(self):
+    def game_id(self):
         """
-        轮次
+        游戏类别
         :return:
         """
-        screening = 2
+        game_id = 1
+        return game_id
+
+    def frozen(self):
+        """
+        创建常规模式比赛时，奖金总额
+        :return:
+        """
+        frozen = random.choice([100, 200, 500, 1000])
+        return frozen
+
+    def get_current_screening(self):
+        """
+        获取当前轮次
+        :return:
+        """
+        screening = 1
         return screening
+
+    def process_num(self):
+        """
+        并发数
+        :return:
+        """
+        process_num = 100
+        return process_num
+
+    def judgement(self):
+        """
+        裁判账号、密码
+        :return:
+        """
+        judgement = ["14700000001", "aaaaaa"]
+        return judgement
 
     def extra_file_path(self):
         """
@@ -160,6 +192,22 @@ class ConfigFile:
             reward["1"] = str(int(reward["1"]) + base_num - reward_all - int(third_reward))
         return reward
 
+    def activity_password(self):
+        """
+        比赛密码
+        :return:
+        """
+        password = ""
+        return password
+
+    def entry_fee(self):
+        """
+        创建奖金池比赛时设置报名费
+        :return:
+        """
+        entry_fee = 10
+        return entry_fee
+
     def file_name(self):
         """
         根据链接的不同服务器选择对应的数据文件
@@ -218,6 +266,19 @@ class ConfigFile:
     # def get_round_time(self, id):
     #     json = MatchInfo().match_info(id)  # 获取赛事信息
     #     timestamp = json["data"]["timeRule"]  # 获取赛事信息中的时间戳列表
+
+    def whether_appraise(self, whether=1):
+        """
+        返回评价星数
+        :param whether: 是否需要差评：1（是）；0（否）
+        :return:
+        """
+        if whether == 1:
+            star = random.randint(1, 2)
+        elif whether == 0:
+            star = random.randint(3, 5)
+        return star
+
 
 
 if __name__ == '__main__':

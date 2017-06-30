@@ -1,6 +1,6 @@
 # _*_ coding:utf-8 _*_
 import requests
-from Scripts.GetCurrentTime import *
+from Scripts.GetTime import *
 from Scripts.GetReport import *
 from Scripts.GetUsers import *
 from Scripts.APIScripts.Other.Login import *
@@ -16,13 +16,13 @@ class Against:
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
                    'Authorization': token,
-                   "Date": "%s" % GetCurrentTime().getHeaderTime(),
+                   "Date": "%s" % GetTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
                    "Transfer - Encoding": "chunked"}
         against_url = "http://%s/activity/%d/against?p=%d" % (ConfigFile().host(), match_id, page)
         request = requests.get(against_url, post_data, headers=headers)
-        time = GetCurrentTime().getCurrentTime()
+        time = GetTime().getCurrentTime()
         status_code = request.status_code
         try:
             if status_code in (200, 422):

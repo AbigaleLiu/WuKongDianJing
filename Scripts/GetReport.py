@@ -4,7 +4,7 @@ import xlwt
 import xlrd
 from xlutils.copy import copy
 from Scripts.GetUsers import *
-from Scripts.GetCurrentTime import *
+from Scripts.GetTime import *
 
 
 class GetReport:
@@ -12,7 +12,7 @@ class GetReport:
     日志文件相关操作
     """
     report_path = ConfigFile().report_path()
-    sheet_name = GetCurrentTime().sheet_time()
+    sheet_name = GetTime().sheet_time()
 
     def get_report(self):
         """

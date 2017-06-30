@@ -4,7 +4,7 @@ from Scripts.APIScripts.PersonalCenter.GameRegion import *
 from Scripts.APIScripts.Other.Login import *
 from Scripts.GetReport import *
 from Scripts.ConfigFile import *
-from Scripts.GetCurrentTime import *
+from Scripts.GetTime import *
 from Scripts.GetUsers import *
 from Scripts.APIScripts.Other.Register import *
 
@@ -27,13 +27,13 @@ class AddRole:
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
                    'Authorization': login["data"]["auth_token"],
-                   "Date": "%s" % GetCurrentTime().getHeaderTime(),
+                   "Date": "%s" % GetTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
                    "Transfer - Encoding": "chunked"}
         add_role_url = "http://%s/usergames/addRole" % ConfigFile().host()
         request = requests.post(add_role_url, data=post_data, headers=headers)
-        time = GetCurrentTime().getCurrentTime()
+        time = GetTime().getCurrentTime()
         status_code = request.status_code
         try:
             if status_code in (200, 422):

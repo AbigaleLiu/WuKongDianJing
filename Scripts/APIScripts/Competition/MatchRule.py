@@ -7,12 +7,12 @@ from Scripts.APIScripts.Other.Login import *
 
 
 class MatchRule:
-    def match_rule(self, login, game_id):
+    def match_rule(self, judgement_token, game_id):
         post_data = {"gameId": "%d" % game_id}  # 游戏ID
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   'Authorization': login["data"]["auth_token"],
+                   'Authorization': judgement_token,
                    "Date": "%s" % GetCurrentTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
@@ -35,7 +35,7 @@ class MatchRule:
 
 
 if __name__ == '__main__':
-    login = Login().login("18708125570", "aaaaaa")
+    judgement_token = Login().login("14700000001", "aaaaaa")["data"]["auth_token"]
     _run = MatchRule()
-    print(_run.match_rule(login, 1))
-    print(random.choice(_run.match_rule(login, 1)["data"])["id"])
+    print(_run.match_rule(judgement_token, 1))
+    print(random.choice(_run.match_rule(judgement_token, 1)["data"])["id"])

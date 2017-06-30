@@ -1,7 +1,7 @@
 # _*_ coding:utf-8 _*_
 import requests
 
-from Scripts.GetCurrentTime import *
+from Scripts.GetTime import *
 from Scripts.ConfigFile import *
 # from Scripts.GetReport import *
 # from Scripts.APIScripts.Other.Register import *
@@ -23,13 +23,13 @@ class Login:
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   "Date": "%s" % GetCurrentTime().getHeaderTime(),
+                   "Date": "%s" % GetTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
                    "Transfer - Encoding": "chunked"}
         login_url = "http://%s/user/login" % ConfigFile().host()
         request = requests.post(login_url, data=post_data, headers=headers)
-        time = GetCurrentTime().getCurrentTime()
+        time = GetTime().getCurrentTime()
         status_code = request.status_code
         try:
             if status_code in (200, 422):

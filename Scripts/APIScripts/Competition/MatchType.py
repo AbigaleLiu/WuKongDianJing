@@ -7,12 +7,15 @@ from Scripts.APIScripts.Other.Login import *
 
 
 class MatchType:
-    def match_type(self, login, game_id):
+    """
+    获取比赛类别：淘汰赛等
+    """
+    def match_type(self, judgement_token, game_id):
         post_data = {"gameId": "%d" % game_id}  # 游戏ID
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
                    'Accept': 'application/json',
-                   'Authorization': login["data"]["auth_token"],
+                   'Authorization': judgement_token,
                    "Date": "%s" % GetCurrentTime().getHeaderTime(),
                    "Proxy - Connection": "Keep - alive",
                    "Server": "nginx / 1.9.3(Ubuntu)",
@@ -35,6 +38,6 @@ class MatchType:
 
 
 if __name__ == '__main__':
-    login = Login().login("18708125570", "aaaaaa")
+    judgement_token = Login().login("18708125570", "aaaaaa")["data"]["auth_token"]
     _run = MatchType()
-    print(_run.match_type(login, 1))
+    print(_run.match_type(judgement_token, 1))

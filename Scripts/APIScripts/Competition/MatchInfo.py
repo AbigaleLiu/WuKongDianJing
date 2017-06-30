@@ -8,6 +8,11 @@ from Scripts.APIScripts.Other.Login import *
 
 class MatchInfo:
     def match_info(self, id):
+        """
+        比赛详情
+        :param id:
+        :return:
+        """
         post_data = {}
         headers = {"Cache - Control": "no - cache",
                    "Content - Type": "text / html;charset = UTF - 8",
